@@ -79,64 +79,90 @@
     <Content Include="App_Data\DatabaseKPop_log.ldf">
       <DependentUpon>DatabaseKPop.mdf</DependentUpon>
     </Content>
-    <Content Include="Model\ModelKPop.Context.tt">
+    <Content Include="HomePage.aspx" />
+    <Content Include="Model\dbKPopModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelKPop.Context.cs</LastGenOutput>
-      <DependentUpon>ModelKPop.edmx</DependentUpon>
+      <DependentUpon>dbKPopModel.edmx</DependentUpon>
+      <LastGenOutput>dbKPopModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\ModelKPop.tt">
+    <Content Include="Model\dbKPopModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelKPop.edmx</DependentUpon>
-      <LastGenOutput>ModelKPop.cs</LastGenOutput>
+      <DependentUpon>dbKPopModel.edmx</DependentUpon>
+      <LastGenOutput>dbKPopModel.cs</LastGenOutput>
     </Content>
+    <Content Include="RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factory\AlbumFactory.cs" />
     <Compile Include="Factory\ArtistFactory.cs" />
     <Compile Include="Factory\CustomerFactory.cs" />
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuNavigation.Master.cs">
+      <DependentUpon>MenuNavigation.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuNavigation.Master.designer.cs">
+      <DependentUpon>MenuNavigation.Master</DependentUpon>
+    </Compile>
     <Compile Include="Model\Album.cs">
-      <DependentUpon>ModelKPop.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Artist.cs">
-      <DependentUpon>ModelKPop.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Cart.cs">
-      <DependentUpon>ModelKPop.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Customer.cs">
-      <DependentUpon>ModelKPop.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ModelKPop.Context.cs">
+    <Compile Include="Model\dbKPopModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelKPop.Context.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ModelKPop.cs">
+    <Compile Include="Model\dbKPopModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelKPop.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ModelKPop.Designer.cs">
+    <Compile Include="Model\dbKPopModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelKPop.edmx</DependentUpon>
+      <DependentUpon>dbKPopModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\TransactionDetail.cs">
-      <DependentUpon>ModelKPop.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TransactionHeader.cs">
-      <DependentUpon>ModelKPop.tt</DependentUpon>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterPage.aspx.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterPage.aspx.designer.cs">
+      <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\dbSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Model\ModelKPop.edmx">
+    <Content Include="MenuNavigation.Master" />
+    <EntityDeploy Include="Model\dbKPopModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelKPop.Designer.cs</LastGenOutput>
+      <LastGenOutput>dbKPopModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Model\ModelKPop.edmx.diagram">
-      <DependentUpon>ModelKPop.edmx</DependentUpon>
+    <Content Include="Model\dbKPopModel.edmx.diagram">
+      <DependentUpon>dbKPopModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
