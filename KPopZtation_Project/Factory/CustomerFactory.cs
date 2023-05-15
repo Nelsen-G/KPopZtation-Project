@@ -9,7 +9,7 @@ namespace KPopZtation_Project.Factory
     public class CustomerFactory
     {
         
-        public Customer addCustomer(String name, String email, String gender, String address, String password)
+        public Customer addCustomer(String name, String email, String password, String gender, String address)
         {
             Customer newCustomer = new Customer();
             newCustomer.CustomerName = name;

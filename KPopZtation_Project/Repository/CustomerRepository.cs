@@ -12,7 +12,7 @@ namespace KPopZtation_Project.Repository
 
         dbKPopEntities db = dbSingleton.getInstance();
 
-        public Customer createCustomer(String name, String email, String gender, String address, String password)
+        public Customer createCustomer(String name, String email, String password, String gender, String address)
         {
             CustomerFactory cf = new CustomerFactory();
 
@@ -20,6 +20,7 @@ namespace KPopZtation_Project.Repository
 
             db.Customers.Add(newCustomer);
             db.SaveChanges();
+
 
             return newCustomer;
         }

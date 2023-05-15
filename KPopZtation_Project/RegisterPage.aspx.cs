@@ -101,7 +101,7 @@ namespace KPopZtation_Project
                 return;
             }
 
-            customerCreation.createCustomer(tbName.Text, tbEmail.Text, rbGender.SelectedValue.ToString(), tbAddress.Text, tbPassword.Text);
+            customerCreation.createCustomer(tbName.Text, tbEmail.Text, tbPassword.Text, rbGender.SelectedValue.ToString(), tbAddress.Text);
 
             Response.Redirect("HomePage.aspx");
         }
