@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93775102a05f4a1bb5c6634d6e887df0" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="DatabaseKPopModel.Album" Width="1.5" PointX="7.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseKPopModel.Artist" Width="1.5" PointX="7.125" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseKPopModel.Customer" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseKPopModel.TransactionHeader" Width="1.5" PointX="3.25" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseKPopModel.Cart" Width="1.5" PointX="3.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseKPopModel.TransactionDetail" Width="1.5" PointX="3.25" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseKPopModel.FK_Album_Artist" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseKPopModel.FK_Cart_Album" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseKPopModel.FK_TransactionDetail_Album" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseKPopModel.FK_Cart_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseKPopModel.FK_TransactionHeader_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseKPopModel.FK_TransactionDetail_TransactionHeader" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
