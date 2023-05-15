@@ -36,11 +36,13 @@
         <asp:Label ID="lbPassword" runat="server" Text="Password: "></asp:Label>
         <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
        
+
         </div>
         <asp:Label ID="lbErrorMessage" runat="server" Text=""></asp:Label>
         <div>
 
         </div>
+
 
         <div>
             <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />

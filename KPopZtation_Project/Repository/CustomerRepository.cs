@@ -16,7 +16,7 @@ namespace KPopZtation_Project.Repository
         {
             CustomerFactory cf = new CustomerFactory();
 
-            Customer newCustomer = cf.addCustomer(name, email, gender, address, password);
+            Customer newCustomer = cf.addCustomer(name, email, password, gender, address); // This follows the ERD order
 
             db.Customers.Add(newCustomer);
             db.SaveChanges();
