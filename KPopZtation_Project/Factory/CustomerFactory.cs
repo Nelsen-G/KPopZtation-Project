@@ -14,10 +14,10 @@ namespace KPopZtation_Project.Factory
             Customer newCustomer = new Customer();
             newCustomer.CustomerName = name;
             newCustomer.CustomerEmail = email;
+            newCustomer.CustomerPassword = password;
             newCustomer.CustomerGender = gender;
             newCustomer.CustomerAddress = address;
-            newCustomer.CustomerPassword = password;
-
+            
             return newCustomer;
         }
     }

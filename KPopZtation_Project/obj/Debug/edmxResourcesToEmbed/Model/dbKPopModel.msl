@@ -32,7 +32,6 @@
           <ScalarProperty Name="CustomerPassword" ColumnName="CustomerPassword" />
           <ScalarProperty Name="CustomerGender" ColumnName="CustomerGender" />
           <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
-          <ScalarProperty Name="CustomerRole" ColumnName="CustomerRole" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

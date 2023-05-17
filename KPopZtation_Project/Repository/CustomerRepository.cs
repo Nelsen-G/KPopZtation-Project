@@ -21,6 +21,7 @@ namespace KPopZtation_Project.Repository
             db.Customers.Add(newCustomer);
             db.SaveChanges();
 
+      
 
             return newCustomer;
         }
@@ -28,6 +29,24 @@ namespace KPopZtation_Project.Repository
         public bool checkCustomerEmail(String email)
         {
             return !db.Customers.Any(c => c.CustomerEmail == email);
+        }
+
+
+        public bool ValidateCredentials(string email, string password)
+        {
+            Customer c = (from cs in db.Customers where cs.CustomerEmail == email && cs.CustomerPassword == password select cs).FirstOrDefault();
+
+            if (c != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public string GetUserNameByEmail(string email)
+        {
+            return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerName;
         }
 
     }

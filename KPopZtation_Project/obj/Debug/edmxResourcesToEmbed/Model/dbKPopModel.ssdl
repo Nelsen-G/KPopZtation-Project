@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="AlbumID" />
     </Key>
-    <Property Name="AlbumID" Type="int" Nullable="false" />
+    <Property Name="AlbumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ArtistID" Type="int" Nullable="false" />
     <Property Name="AlbumName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="AlbumImage" Type="varchar" MaxLength="50" Nullable="false" />
@@ -16,7 +16,7 @@
     <Key>
       <PropertyRef Name="ArtistID" />
     </Key>
-    <Property Name="ArtistID" Type="int" Nullable="false" />
+    <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ArtistName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ArtistImage" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -36,13 +36,12 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
     <Key>
       <PropertyRef Name="CustomerID" />
     </Key>
-    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CustomerEmail" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CustomerPassword" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CustomerGender" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="CustomerAddress" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="CustomerRole" Type="varchar" MaxLength="5" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJECT\KPOPZTATION_PROJECT\APP_DATA\DATABASEKPOP.MDF.dbo.TransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -60,7 +59,7 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
     <Key>
       <PropertyRef Name="TransactionID" />
     </Key>
-    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TransactionDate" Type="date" Nullable="false" />
     <Property Name="CustomerID" Type="int" Nullable="false" />
   </EntityType>

@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabaseKPopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabaseKPopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Album">
           <Key>
             <PropertyRef Name="AlbumID" />
           </Key>
-          <Property Name="AlbumID" Type="int" Nullable="false" />
+          <Property Name="AlbumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ArtistID" Type="int" Nullable="false" />
           <Property Name="AlbumName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AlbumImage" Type="varchar" MaxLength="50" Nullable="false" />
@@ -21,7 +21,7 @@
           <Key>
             <PropertyRef Name="ArtistID" />
           </Key>
-          <Property Name="ArtistID" Type="int" Nullable="false" />
+          <Property Name="ArtistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ArtistName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ArtistImage" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -41,13 +41,12 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
           <Key>
             <PropertyRef Name="CustomerID" />
           </Key>
-          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CustomerEmail" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CustomerPassword" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CustomerGender" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="CustomerAddress" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="CustomerRole" Type="varchar" MaxLength="5" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJECT\KPOPZTATION_PROJECT\APP_DATA\DATABASEKPOP.MDF.dbo.TransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -65,7 +64,7 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
           <Key>
             <PropertyRef Name="TransactionID" />
           </Key>
-          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TransactionDate" Type="date" Nullable="false" />
           <Property Name="CustomerID" Type="int" Nullable="false" />
         </EntityType>
@@ -185,8 +184,7 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
             <End Role="TransactionHeader" EntitySet="TransactionHeader" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabaseKPopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -224,7 +222,6 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
           <Property Name="CustomerPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CustomerGender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CustomerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CustomerRole" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Carts" Relationship="Self.FK_Cart_Customer" FromRole="Customer" ToRole="Cart" />
           <NavigationProperty Name="TransactionHeaders" Relationship="Self.FK_TransactionHeader_Customer" FromRole="Customer" ToRole="TransactionHeader" />
         </EntityType>
@@ -403,7 +400,6 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
                 <ScalarProperty Name="CustomerPassword" ColumnName="CustomerPassword" />
                 <ScalarProperty Name="CustomerGender" ColumnName="CustomerGender" />
                 <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
-                <ScalarProperty Name="CustomerRole" ColumnName="CustomerRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -27,7 +27,6 @@ namespace KPopZtation_Project.Model
         public string CustomerPassword { get; set; }
         public string CustomerGender { get; set; }
         public string CustomerAddress { get; set; }
-        public string CustomerRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }

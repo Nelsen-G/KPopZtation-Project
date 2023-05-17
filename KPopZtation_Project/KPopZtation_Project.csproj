@@ -79,7 +79,7 @@
     <Content Include="App_Data\DatabaseKPop_log.ldf">
       <DependentUpon>DatabaseKPop.mdf</DependentUpon>
     </Content>
-    <Content Include="HomePage.aspx" />
+    <Content Include="View\HomePage.aspx" />
     <Content Include="Model\dbKPopModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbKPopModel.edmx</DependentUpon>
@@ -90,25 +90,35 @@
       <DependentUpon>dbKPopModel.edmx</DependentUpon>
       <LastGenOutput>dbKPopModel.cs</LastGenOutput>
     </Content>
-    <Content Include="RegisterPage.aspx" />
+    <Content Include="View\LoginPage.aspx" />
+    <Content Include="View\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CustomerController.cs" />
     <Compile Include="Factory\AlbumFactory.cs" />
     <Compile Include="Factory\ArtistFactory.cs" />
     <Compile Include="Factory\CustomerFactory.cs" />
-    <Compile Include="HomePage.aspx.cs">
+    <Compile Include="Handler\CustomerHandler.cs" />
+    <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HomePage.aspx.designer.cs">
+    <Compile Include="View\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MenuNavigation.Master.cs">
+    <Compile Include="View\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuNavigation.Master.cs">
       <DependentUpon>MenuNavigation.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MenuNavigation.Master.designer.cs">
+    <Compile Include="View\MenuNavigation.Master.designer.cs">
       <DependentUpon>MenuNavigation.Master</DependentUpon>
     </Compile>
     <Compile Include="Model\Album.cs">
@@ -145,18 +155,18 @@
       <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterPage.aspx.cs">
+    <Compile Include="View\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegisterPage.aspx.designer.cs">
+    <Compile Include="View\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\dbSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MenuNavigation.Master" />
+    <Content Include="View\MenuNavigation.Master" />
     <EntityDeploy Include="Model\dbKPopModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dbKPopModel.Designer.cs</LastGenOutput>
@@ -175,6 +185,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
