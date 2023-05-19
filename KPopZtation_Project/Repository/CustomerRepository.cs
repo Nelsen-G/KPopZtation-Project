@@ -49,5 +49,7 @@ namespace KPopZtation_Project.Repository
             return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerName;
         }
 
+
+
     }
 }

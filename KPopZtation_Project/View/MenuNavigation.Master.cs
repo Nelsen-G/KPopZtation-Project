@@ -58,5 +58,13 @@ namespace KPopZtation_Project
         {
 
         }
+
+
+        //Sementara begini dulu ya
+        protected void btnAdmin_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.Session["user"] = "Admin";
+            Response.Redirect("HomePage.aspx");
+        }
     }
 }

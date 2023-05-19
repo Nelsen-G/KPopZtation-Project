@@ -7,4 +7,16 @@
 
     <asp:Label ID="lblWelcomeMessage" runat="server"></asp:Label>
 
+     <% if (Session["user"] == null) { %> 
+
+
+    <%} else if (Session["user"].ToString() == "Customer") {%>
+
+
+     <%} else if (Session["user"].ToString() == "Admin") {%>
+
+
+    <% } %>
+
+
 </asp:Content>

@@ -60,6 +60,15 @@ namespace KPopZtation_Project
         protected global::System.Web.UI.WebControls.Button btnRegister;
 
         /// <summary>
+        /// btnAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdmin;
+
+        /// <summary>
         /// btnHome2 control.
         /// </summary>
         /// <remarks>
