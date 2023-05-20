@@ -8,7 +8,7 @@ namespace KPopZtation_Project.Factory
 {
     public class AlbumFactory
     {
-        public static Album addAlbum(String name, String description, int price, int stock, String image)
+        public Album addAlbum(String name, String description, int price, int stock, String image)
         {
             Album newAlbum = new Album();
             newAlbum.AlbumName = name;

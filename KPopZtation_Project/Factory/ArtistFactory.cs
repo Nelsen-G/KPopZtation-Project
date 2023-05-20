@@ -8,7 +8,7 @@ namespace KPopZtation_Project.Factory
 {
     public class ArtistFactory
     {
-        public static Artist addArtist(String name, String image)
+        public Artist addArtist(String name, String image)
         {
             Artist newArtist = new Artist();
             newArtist.ArtistName = name;

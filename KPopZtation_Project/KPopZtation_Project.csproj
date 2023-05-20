@@ -90,6 +90,7 @@
       <DependentUpon>dbKPopModel.edmx</DependentUpon>
       <LastGenOutput>dbKPopModel.cs</LastGenOutput>
     </Content>
+    <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
     <Content Include="Web.config" />
@@ -109,6 +110,13 @@
     </Compile>
     <Compile Include="View\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\InsertArtist.aspx.cs">
+      <DependentUpon>InsertArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InsertArtist.aspx.designer.cs">
+      <DependentUpon>InsertArtist.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
