@@ -6,16 +6,29 @@
     <h1>Home Page</h1>
 
     <asp:Label ID="lblWelcomeMessage" runat="server"></asp:Label>
-
-     <% if (Session["user"] == null) { %> 
-
-
-    <%} else if (Session["user"].ToString() == "Customer") {%>
+    
 
 
-     <%} else if (Session["user"].ToString() == "Admin") {%>
+    <% foreach (var artist in artists)
+{ %>
+    <div>
+        <p><%= artist.ArtistID %></p>
+        <p><%= artist.ArtistName %></p>
+        <p><%= artist.ArtistImage %></p>
+        
+        <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
+            <a href="UpdateArtist.aspx?artistID=<%= artist.ArtistID %>">Update</a>
+            
+        <% } %>
+    </div>
+
+<% } %>
 
 
+
+
+     <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
+        <asp:Button ID="btnAddArtist" runat="server" Text="Add Artist" OnClick="btnAddArtist_Click" />
     <% } %>
 
 

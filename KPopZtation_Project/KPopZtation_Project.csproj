@@ -93,6 +93,7 @@
     <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
+    <Content Include="View\UpdateArtist.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +176,13 @@
     </Compile>
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\dbSingleton.cs" />
+    <Compile Include="View\UpdateArtist.aspx.cs">
+      <DependentUpon>UpdateArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateArtist.aspx.designer.cs">
+      <DependentUpon>UpdateArtist.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\MenuNavigation.Master" />

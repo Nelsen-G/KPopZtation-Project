@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
 
 
-    <h1>Insert Image</h1>
+    <h1>Insert Artist</h1>
 
     <div>
         <asp:Label ID="lbName" runat="server" Text="Name"></asp:Label>

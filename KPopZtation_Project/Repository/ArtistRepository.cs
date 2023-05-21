@@ -29,8 +29,30 @@ namespace KPopZtation_Project.Repository
             return newArtist;
         }
 
+        public Artist selectArtist(int artistNumber)
+        {
+             return db.Artists.FirstOrDefault(a => a.ArtistID == artistNumber);
+        }
 
 
+        public Artist updateArtist(int id, string name, string fileName)
+        {
+            Artist updateA = new Artist();
+            updateA = db.Artists.Find(id);
+
+            updateA.ArtistName = name;
+            updateA.ArtistImage = fileName;
+
+            db.SaveChanges();
+
+            return updateA;
+        }
+
+
+        public List<Artist> getAllArtists()
+        {
+            return (from a in db.Artists select a).ToList();
+        }
        
     }
 }

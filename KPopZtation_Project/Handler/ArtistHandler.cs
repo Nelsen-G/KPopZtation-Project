@@ -25,5 +25,11 @@ namespace KPopZtation_Project.Handler
             
             artistRepository.createArtist(name, fileName);
         }
+
+        public void HandleUpdate(int id, string name, string fileName)
+        {
+
+            artistRepository.updateArtist(id, name, fileName);
+        }
     }
 }
