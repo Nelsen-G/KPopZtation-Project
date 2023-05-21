@@ -9,20 +9,20 @@
     
 
 
-    <% foreach (var artist in artists)
-{ %>
-    <div>
-        <p><%= artist.ArtistID %></p>
-        <p><%= artist.ArtistName %></p>
-        <p><%= artist.ArtistImage %></p>
-        
-        <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
-            <a href="UpdateArtist.aspx?artistID=<%= artist.ArtistID %>">Update</a>
+    <asp:Repeater ID="rptArtists" runat="server">
+    <ItemTemplate>
+        <div>
+            <p><%# Eval("ArtistID") %></p>
+            <p><%# Eval("ArtistName") %></p>
+            <p><%# Eval("ArtistImage") %></p>
             
-        <% } %>
-    </div>
-
-<% } %>
+            <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
+                <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("ArtistID") %>' />
+                <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CommandArgument='<%# Eval("ArtistID") %>' />
+            <% } %>
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
 
 
 

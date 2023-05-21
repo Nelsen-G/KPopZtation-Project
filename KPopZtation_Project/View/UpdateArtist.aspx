@@ -6,6 +6,10 @@
     <h1>Update Artist</h1>
 
     <div>
+        <asp:Button ID="backButton" runat="server" Text="Back" OnClick="backButton_Click"/>
+    </div>
+
+    <div>
         <asp:Label ID="lbID" runat="server" Text="ID"></asp:Label>
         <asp:TextBox ID="tbID" Enabled="false" runat="server"></asp:TextBox>
     </div>

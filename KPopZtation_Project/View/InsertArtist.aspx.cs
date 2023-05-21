@@ -32,6 +32,9 @@ namespace KPopZtation_Project.View
 				return;
 			}
 
+
+			Response.Redirect(Request.RawUrl);
+
 		}
     }
 }

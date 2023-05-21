@@ -48,11 +48,21 @@ namespace KPopZtation_Project.Repository
             return updateA;
         }
 
+        public Artist deleteArtist(int id)
+        {
+            Artist a = db.Artists.Find(id);
+            db.Artists.Remove(a);
+            db.SaveChanges();
+
+            return a;
+        }
 
         public List<Artist> getAllArtists()
         {
             return (from a in db.Artists select a).ToList();
         }
+
+
        
     }
 }

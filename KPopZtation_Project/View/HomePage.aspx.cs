@@ -31,6 +31,9 @@ namespace KPopZtation_Project.View
                 ArtistRepository artistRepository = new ArtistRepository();
                 artists = artistRepository.getAllArtists();
 
+                rptArtists.DataSource = artists;
+                rptArtists.DataBind();
+
             }
 
 
@@ -42,9 +45,25 @@ namespace KPopZtation_Project.View
         }
 
         
+   
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string artistID = btn.CommandArgument;
+
+            Response.Redirect("UpdateArtist.aspx?id=" + artistID);
+        }
+
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            string artistID = btn.CommandArgument;
 
+            int artistNumber = Convert.ToInt32(artistID);
+            ArtistRepository artistRepository = new ArtistRepository();
+            artistRepository.deleteArtist(artistNumber);
+
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

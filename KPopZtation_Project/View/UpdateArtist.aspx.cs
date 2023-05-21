@@ -18,7 +18,7 @@ namespace KPopZtation_Project.View
 
             if (!IsPostBack)
             {
-                string artistPassedID = Request.QueryString["artistID"];
+                string artistPassedID = Request.QueryString["id"];
                 int artistNumber = Convert.ToInt32(artistPassedID);
 
                 Artist a = artistRepository.selectArtist(artistNumber);
@@ -37,7 +37,7 @@ namespace KPopZtation_Project.View
             ArtistController artistController = new ArtistController();
 
 
-            string artistPassedID = Request.QueryString["artistID"];
+            string artistPassedID = Request.QueryString["id"];
             int artistNumber = Convert.ToInt32(artistPassedID);
 
             string name = tbName.Text;
@@ -53,6 +53,14 @@ namespace KPopZtation_Project.View
                 return;
             }
 
+
+            Response.Redirect("HomePage.aspx");
+
+        }
+
+        protected void backButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx");
         }
     }
 }

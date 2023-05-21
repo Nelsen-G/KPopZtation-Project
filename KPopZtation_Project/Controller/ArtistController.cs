@@ -85,13 +85,9 @@ namespace KPopZtation_Project.Controller
                 return;
             }
 
-            else if (fileName.Length == 0) //Validasi Upload Image
-            {
-                errorMessage = "Please choose an image file";
-                return;
+            //tidak perlu validasi jika file ada atau tidak, karena sudah mengambil dari database sebelumnya 
 
-            }
-            else if (fileName.Length > 0)
+            else if (fileName.Length > 0)  //tetapi kalo emang ada, baru dicek
             {
                 // Validasi extension dari file
 
