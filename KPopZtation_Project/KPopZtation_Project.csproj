@@ -79,6 +79,7 @@
     <Content Include="App_Data\DatabaseKPop_log.ldf">
       <DependentUpon>DatabaseKPop.mdf</DependentUpon>
     </Content>
+    <Content Include="View\ArtistDetail.aspx" />
     <Content Include="View\HomePage.aspx" />
     <Content Include="Model\dbKPopModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -90,6 +91,7 @@
       <DependentUpon>dbKPopModel.edmx</DependentUpon>
       <LastGenOutput>dbKPopModel.cs</LastGenOutput>
     </Content>
+    <Content Include="View\InsertAlbum.aspx" />
     <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
@@ -105,12 +107,26 @@
     <Compile Include="Handler\ArtistHandler.cs" />
     <Compile Include="Handler\CustomerHandler.cs" />
     <Compile Include="Repository\ArtistRepository.cs" />
+    <Compile Include="View\ArtistDetail.aspx.cs">
+      <DependentUpon>ArtistDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\ArtistDetail.aspx.designer.cs">
+      <DependentUpon>ArtistDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\InsertAlbum.aspx.cs">
+      <DependentUpon>InsertAlbum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\InsertAlbum.aspx.designer.cs">
+      <DependentUpon>InsertAlbum.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\InsertArtist.aspx.cs">
       <DependentUpon>InsertArtist.aspx</DependentUpon>

@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
 
+    <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %> 
 
     <h1>Insert Artist</h1>
 
@@ -25,6 +26,13 @@
     <div>
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
     </div>
+
+
+    <% }
+        else {
+        
+            Response.Redirect("HomePage.aspx");
+} %>
 
 
 </asp:Content>
