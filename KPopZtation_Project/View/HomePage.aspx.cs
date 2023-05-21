@@ -44,8 +44,14 @@ namespace KPopZtation_Project.View
             Response.Redirect("InsertArtist.aspx");
         }
 
-        
-   
+        protected void btnDetails_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string artistID = btn.CommandArgument;
+
+            Response.Redirect("ArtistDetail.aspx?id=" + artistID);
+        }
+
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -65,5 +71,7 @@ namespace KPopZtation_Project.View
 
             Response.Redirect(Request.RawUrl);
         }
+
+        
     }
 }

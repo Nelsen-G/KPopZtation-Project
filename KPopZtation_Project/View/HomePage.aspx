@@ -7,19 +7,30 @@
 
     <asp:Label ID="lblWelcomeMessage" runat="server"></asp:Label>
     
-
+    <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
+        <asp:Button ID="btnAddArtist" runat="server" Text="Add Artist" OnClick="btnAddArtist_Click" />
+    <% } %>
 
     <asp:Repeater ID="rptArtists" runat="server">
     <ItemTemplate>
-        <div>
-            <p><%# Eval("ArtistID") %></p>
-            <p><%# Eval("ArtistName") %></p>
-            <p><%# Eval("ArtistImage") %></p>
-            
+        <div class="card">
+            <div class="card-header">
+                <h3><%# Eval("ArtistName") %></h3>
+            </div>
+            <div class="card-body">
+                <p>Artist ID: <%# Eval("ArtistID") %></p>
+                <p>Artist Image: <%# Eval("ArtistImage") %></p>
+                <asp:Button ID="btnDetails" runat="server" Text="See Details" OnClick="btnDetails_Click" CommandArgument='<%# Eval("ArtistID") %>' />
+            </div>
             <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
-                <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("ArtistID") %>' />
-                <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CommandArgument='<%# Eval("ArtistID") %>' />
+                <div class="card-footer">
+                    <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("ArtistID") %>' />
+                    <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CommandArgument='<%# Eval("ArtistID") %>' />
+                </div>
+
+
             <% } %>
+
         </div>
     </ItemTemplate>
 </asp:Repeater>
@@ -27,9 +38,7 @@
 
 
 
-     <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
-        <asp:Button ID="btnAddArtist" runat="server" Text="Add Artist" OnClick="btnAddArtist_Click" />
-    <% } %>
+     
 
 
 </asp:Content>
