@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.IO;
+using KPopZtation_Project.Model;
 
 namespace KPopZtation_Project.Controller
 {
@@ -72,25 +73,36 @@ namespace KPopZtation_Project.Controller
         public void validateUpdate(int id, string name, FileUpload fileUploadImage, out string errorMessage)
         {
             errorMessage = string.Empty;
-            string fileName = Path.GetFileName(fileUploadImage.FileName);
-            //Validasi Nama
+            string fileName = null;
+
+            // Validasi Nama
             if (string.IsNullOrEmpty(name))
             {
-                errorMessage = "Artist Name must be Filled";
-                return;
-            }
-            else if (!artistHandler.checkName(name))
-            {
-                errorMessage = "Artist Name must be Unique";
+                errorMessage = "Artist Name must be filled";
                 return;
             }
 
-            //tidak perlu validasi jika file ada atau tidak, karena sudah mengambil dari database sebelumnya 
 
-            else if (fileName.Length > 0)  //tetapi kalo emang ada, baru dicek
+            string previousName = artistHandler.getArtistName(id);
+            if (!name.Equals(previousName, StringComparison.OrdinalIgnoreCase))
             {
-                // Validasi extension dari file
+                // kalo diganti namanya, baru cek
+                if (!artistHandler.checkName(name))
+                {
+                    errorMessage = "Artist Name must be unique";
+                    return;
+                }
 
+            } else
+            {
+                name = previousName;
+            }
+
+
+            // Cek apakah ada file yang diupload
+            if (fileUploadImage.HasFile)
+            {
+                // Validasi file
                 string fileExtension = Path.GetExtension(fileUploadImage.FileName).ToLower();
                 string[] allowedExtensions = { ".png", ".jpg", ".jpeg", ".jfif" };
 
@@ -100,21 +112,27 @@ namespace KPopZtation_Project.Controller
                     return;
                 }
 
-                // Validasi size dari file
-                int fileSize = fileUploadImage.PostedFile.ContentLength;
-                int maxSizeInBytes = 2 * 1024 * 1024; // ini hasilnya equals to 2MB
-
-                if (fileSize > maxSizeInBytes)
+                int maxSizeInBytes = 2 * 1024 * 1024; // 2MB
+                if (fileUploadImage.PostedFile.ContentLength > maxSizeInBytes)
                 {
                     errorMessage = "File size must be lower than 2MB";
                     return;
                 }
 
 
+                fileName = Path.GetFileName(fileUploadImage.FileName); // kalo ada baru, ganti jadi baru
+
+            }
+            else
+            {
+                fileName = artistHandler.getFileName(id); // kalo gak diupdate, dia bakal pake file name sebelumnya
             }
 
             artistHandler.HandleUpdate(id, name, fileName);
-
         }
+
+
+
+
     }
 }
