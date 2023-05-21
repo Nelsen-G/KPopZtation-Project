@@ -1,4 +1,5 @@
-﻿using KPopZtation_Project.Model;
+﻿using KPopZtation_Project.Factory;
+using KPopZtation_Project.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,20 @@ namespace KPopZtation_Project.Repository
         public Album selectAlbum(int albumNumber)
         {
             return db.Albums.FirstOrDefault(a => a.AlbumID == albumNumber);
+        }
+
+        public Album createAlbum(int foreignArtistID, String name, String description, int price, int stock, String fileName)
+        {
+            AlbumFactory abF = new AlbumFactory();
+
+            Album newAlbum = abF.addAlbum(foreignArtistID, name, description, price, stock, fileName);
+
+            db.Albums.Add(newAlbum);
+            db.SaveChanges();
+
+            return newAlbum;
+
+
         }
 
     }

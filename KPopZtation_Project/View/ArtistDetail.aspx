@@ -29,8 +29,8 @@
             <div>
                 <h2>Albums</h2>
 
-                <asp:Button ID="btnInsertAlbum" runat="server" Text="Add New Album" OnClick="btnInsertAlbum_Click" />
-
+                  <asp:Button ID="btnInsertAlbum" runat="server" Text="Insert Album" OnClick="btnInsertAlbum_Click"  />
+                         
                 <asp:Repeater ID="rptAlbums" runat="server">
                     <ItemTemplate>
                         <div>
@@ -48,6 +48,7 @@
                             <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
                                 <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" CommandArgument='<%# Eval("AlbumID") %>' />
                                 <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" CommandArgument='<%# Eval("AlbumID") %>' />
+                           
                             <% } %>
 
                         </div>

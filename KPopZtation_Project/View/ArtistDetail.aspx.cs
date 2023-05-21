@@ -13,6 +13,7 @@ namespace KPopZtation_Project.View
     {
         public Artist artist;
         public List<Album> albums = new List<Album>();
+        public int artistNumber;
         protected void Page_Load(object sender, EventArgs e)
         {
             ArtistRepository artistRepository = new ArtistRepository();
@@ -23,7 +24,7 @@ namespace KPopZtation_Project.View
 
                 // ambil ArtistID
                 string artistPassedID = Request.QueryString["id"];
-                int artistNumber = Convert.ToInt32(artistPassedID);
+                artistNumber = Convert.ToInt32(artistPassedID);
 
                 Artist art = artistRepository.selectArtist(artistNumber);
 
@@ -55,14 +56,21 @@ namespace KPopZtation_Project.View
 
         }
 
-        protected void btnInsertAlbum_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("InsertAlbum.aspx");
-        }
+        
 
         protected void btnAlbumDetail_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            string artistID = btn.CommandArgument;
 
+            Response.Redirect("AlbumDetail.aspx?id=" + artistID);
+        }
+
+        protected void btnInsertAlbum_Click(object sender, EventArgs e)
+        {
+            string artistID = Request.QueryString["id"];
+           
+            Response.Redirect("InsertAlbum.aspx?id=" + artistID);
         }
     }
 
