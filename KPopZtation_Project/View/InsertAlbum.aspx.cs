@@ -1,4 +1,5 @@
 ﻿using KPopZtation_Project.Controller;
+using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,15 @@ namespace KPopZtation_Project.View
             Response.Redirect(Request.RawUrl);
 
 
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            AlbumRepository albumRepository = new AlbumRepository();
+
+            string artistID = Request.QueryString["id"];
+      
+            Response.Redirect("ArtistDetail.aspx?id=" + artistID);
         }
     }
 }

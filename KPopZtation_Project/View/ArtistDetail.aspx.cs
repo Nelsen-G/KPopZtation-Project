@@ -53,7 +53,14 @@ namespace KPopZtation_Project.View
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            string albumID = btn.CommandArgument;
 
+            int albumNumber = Convert.ToInt32(albumID);
+            AlbumRepository albumRepository = new AlbumRepository();
+            albumRepository.deleteAlbum(albumNumber);
+
+            Response.Redirect(Request.RawUrl);
         }
 
         
@@ -71,6 +78,11 @@ namespace KPopZtation_Project.View
             string artistID = Request.QueryString["id"];
            
             Response.Redirect("InsertAlbum.aspx?id=" + artistID);
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx?");
         }
     }
 

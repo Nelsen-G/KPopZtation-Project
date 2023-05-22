@@ -22,6 +22,20 @@ namespace KPopZtation_Project.Repository
             return db.Albums.FirstOrDefault(a => a.AlbumID == albumNumber);
         }
 
+        public int getArtistFromAlbum(int albumNumber)
+        {
+            int artistID = 0;
+
+            var album = db.Albums.FirstOrDefault(a => a.AlbumID == albumNumber);
+
+            if (album != null)
+            {
+                artistID = album.ArtistID;
+            }
+
+            return artistID;
+        }
+
         public Album createAlbum(int foreignArtistID, String name, String description, int price, int stock, String fileName)
         {
             AlbumFactory abF = new AlbumFactory();
@@ -36,5 +50,32 @@ namespace KPopZtation_Project.Repository
 
         }
 
+        public Album updateAlbum(int id, string name, string description, int price, int stock, string fileName)
+        {
+            Album updateAbm = new Album();
+            updateAbm = db.Albums.Find(id);
+
+            updateAbm.AlbumName = name;
+            updateAbm.AlbumDescription = description;
+            updateAbm.AlbumPrice = price;
+            updateAbm.AlbumStock = stock;
+            updateAbm.AlbumImage = fileName;
+
+
+            db.SaveChanges();
+
+            return updateAbm;
+
+        }
+
+
+        public Album deleteAlbum(int id)
+        {
+            Album abm = db.Albums.Find(id);
+            db.Albums.Remove(abm);
+            db.SaveChanges();
+
+            return abm;
+        }
     }
 }

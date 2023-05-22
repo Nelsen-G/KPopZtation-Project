@@ -1,4 +1,5 @@
-﻿using KPopZtation_Project.Model;
+﻿using KPopZtation_Project.Controller;
+using KPopZtation_Project.Model;
 using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
@@ -37,12 +38,40 @@ namespace KPopZtation_Project.View
 
         protected void backButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ArtistDetail.aspx");
+            AlbumRepository albumRepository = new AlbumRepository();
+
+            string albumPassedID = Request.QueryString["id"];
+            int albumNumber = Convert.ToInt32(albumPassedID);
+
+            int numberArtistID = albumRepository.getArtistFromAlbum(albumNumber);
+            string artistID = numberArtistID.ToString();
+
+            Response.Redirect("ArtistDetail.aspx?id=" + artistID);
+            
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            AlbumController albumController = new AlbumController();
 
+            string albumPassedID = Request.QueryString["id"];
+            int albumNumber = Convert.ToInt32(albumPassedID);
+
+            string errorMessage;
+
+            string name = tbName.Text.Trim();
+            string description = tbDescription.Text.Trim();
+            string priceText = tbPrice.Text.Trim();
+            string stockText = tbStock.Text.Trim();
+
+            albumController.validateUpdateAlbum(albumNumber, name, description, priceText, stockText, fileUploadImage, out errorMessage);
+
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                lbErrorMessage.Text = errorMessage;
+                return;
+            }
         }
     }
 }

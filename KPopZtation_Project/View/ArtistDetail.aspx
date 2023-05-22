@@ -3,6 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContent" runat="server">
 
+    <div>
+        <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click"  />
+    </div>
+    
 
     <h1>Artist Details</h1>
   

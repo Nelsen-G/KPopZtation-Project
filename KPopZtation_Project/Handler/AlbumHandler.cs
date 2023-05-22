@@ -1,4 +1,5 @@
-﻿using KPopZtation_Project.Repository;
+﻿using KPopZtation_Project.Model;
+using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,22 @@ namespace KPopZtation_Project.Handler
             albumRepository = new AlbumRepository();
         }
 
+        public string getFileName(int id)
+        {
+            Album album = albumRepository.selectAlbum(id);
+            return album != null ? album.AlbumImage : string.Empty;
+        }
+
         public void HandleInsertion(int foreignArtistID, string name, string description, int price, int stock, string fileName)
         {
 
             albumRepository.createAlbum(foreignArtistID, name, description, price, stock, fileName);
         }
 
+        public void HandleUpdate(int id, string name, string description, int price, int stock, string fileName)
+        {
+            albumRepository.updateAlbum(id, name, description, price, stock, fileName);
+        }
 
     }
 }
