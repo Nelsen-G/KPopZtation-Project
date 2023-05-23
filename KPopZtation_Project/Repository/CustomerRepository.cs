@@ -49,10 +49,7 @@ namespace KPopZtation_Project.Repository
             return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerName;
         }
 
-        public Artist getArtistById(int id)
-        {
-            return db.Artists.FirstOrDefault(a => a.ArtistID == id);
-        }
+        
 
     }
 }

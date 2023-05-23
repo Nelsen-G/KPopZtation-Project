@@ -196,5 +196,14 @@ namespace KPopZtation_Project.Controller
 
         }
 
+
+        public void validateAddToCart(string quantity, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+       
+
+
+        }
     }
 }

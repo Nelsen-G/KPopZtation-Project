@@ -62,7 +62,11 @@ namespace KPopZtation_Project.Repository
             return (from a in db.Artists select a).ToList();
         }
 
+        public Artist getArtistById(int id)
+        {
+            return db.Artists.FirstOrDefault(a => a.ArtistID == id);
+        }
 
-       
+
     }
 }

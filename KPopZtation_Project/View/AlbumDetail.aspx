@@ -7,6 +7,36 @@
 
     <div>
         <asp:Button ID="backButton" runat="server" Text="Back" OnClick="backButton_Click" />
+  
     </div>
+
+
+    <div>
+                <asp:Label ID="lbAlbumName" runat="server" Text=""></asp:Label>
+            </div>
+            <div>
+                <asp:Label ID="lbDescription" runat="server" Text=""></asp:Label>
+            </div>
+            <div>
+                <asp:Label ID="lbPrice" runat="server" Text=""></asp:Label>
+            </div>
+            <div>
+                <asp:Label ID="lbStock" runat="server" Text=""></asp:Label>
+            </div>
+            <asp:Panel ID="pnlAddToCart" runat="server" Visible="false">
+                <div>
+                    <asp:Label ID="lbQuantity" runat="server" Text="Quantity: "></asp:Label>
+       
+                    <asp:TextBox ID="tbQuantity" runat="server"></asp:TextBox>
+                </div>
+
+                <div>
+                    <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" OnClick="btnAddToCart_Click" />
+                </div>
+
+
+            </asp:Panel>
+
+
 
 </asp:Content>
