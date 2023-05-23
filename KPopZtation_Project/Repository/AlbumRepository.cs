@@ -77,5 +77,22 @@ namespace KPopZtation_Project.Repository
 
             return abm;
         }
+
+
+        public int GetAlbumStock(int albumID)
+        {
+            int albumStock = 0;
+
+            var album = db.Albums.FirstOrDefault(a => a.AlbumID == albumID);
+
+            if (album != null)
+            {
+                albumStock = album.AlbumStock;
+            }
+
+            return albumStock;
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using KPopZtation_Project.Model;
+﻿using KPopZtation_Project.Controller;
+using KPopZtation_Project.Model;
 using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,24 @@ namespace KPopZtation_Project.View
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             CustomerRepository customerRepository = new CustomerRepository();
+            AlbumController albumController = new AlbumController();
+
+            int loggedInCustomerID = customerRepository.GetCustomerID(HttpContext.Current);
+
+            int albumID = int.Parse(Request.QueryString["id"]);
+
+            string quantity = tbQuantity.Text;
+
+            string errorMessage;
+
+            albumController.validateAddToCart(loggedInCustomerID, albumID, quantity, out errorMessage);
+
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                lbErrorMessage.Text = errorMessage;
+                return;
+            }
 
 
         }

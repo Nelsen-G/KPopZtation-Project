@@ -34,6 +34,9 @@
                     <asp:Button ID="btnAddToCart" runat="server" Text="Add to Cart" OnClick="btnAddToCart_Click" />
                 </div>
 
+                <div>
+                <asp:Label ID="lbErrorMessage" runat="server" Text=""></asp:Label>
+            </div>
 
             </asp:Panel>
 

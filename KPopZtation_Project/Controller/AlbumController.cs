@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using System.IO;
+using KPopZtation_Project.Repository;
 
 namespace KPopZtation_Project.Controller
 {
@@ -12,10 +13,11 @@ namespace KPopZtation_Project.Controller
     {
 
         private AlbumHandler albumHandler;
-
+    
         public AlbumController()
         {
             albumHandler = new AlbumHandler();
+           
         }
 
         public void validateUpdateAlbum(int id, string name, string description, string priceText, string stockText, FileUpload fileUploadImage, out string errorMessage)
@@ -197,11 +199,32 @@ namespace KPopZtation_Project.Controller
         }
 
 
-        public void validateAddToCart(string quantity, out string errorMessage)
+        public void validateAddToCart(int customerID, int albumID, string quantity, out string errorMessage)
         {
+            AlbumRepository albumRepository = new AlbumRepository();
+
             errorMessage = string.Empty;
 
-       
+            int qty;
+            if (!int.TryParse(quantity.Trim(), out qty))
+            {
+                errorMessage = "Invalid quantity";
+                return;
+            }
+
+            if (qty <= 0)
+            {
+                errorMessage = "Quantity must be greater than 0";
+                return;
+            }
+
+            int stock = albumRepository.GetAlbumStock(albumID);
+
+            if (qty > stock)
+            {
+                errorMessage = "Quantity cannot exceed the stock album.";
+                return;
+            }
 
 
         }

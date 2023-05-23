@@ -42,13 +42,13 @@ namespace KPopZtation_Project
         protected global::System.Web.UI.WebControls.Button btnHome;
 
         /// <summary>
-        /// btnProduct control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProduct;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
         /// btnRegister control.

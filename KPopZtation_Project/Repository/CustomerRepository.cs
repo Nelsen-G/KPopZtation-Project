@@ -49,7 +49,23 @@ namespace KPopZtation_Project.Repository
             return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerName;
         }
 
-        
+        public int GetCustomerID(HttpContext context)
+        {
+            if (context.Session["user"] != null && context.Session["user"].ToString() == "Customer")
+            {
+               
+                if (context.Session["customerID"] != null && int.TryParse(context.Session["customerID"].ToString(), out int customerID))
+                {
+                  
+                    return customerID;
+                }
+
+                return 0;
+            }
+
+            return 0;
+     
+        }
 
     }
 }

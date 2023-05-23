@@ -66,5 +66,10 @@ namespace KPopZtation_Project
             HttpContext.Current.Session["user"] = "Admin";
             Response.Redirect("HomePage.aspx");
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginPage.aspx");
+        }
     }
 }

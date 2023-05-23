@@ -18,7 +18,7 @@ namespace KPopZtation_Project.Handler
 
         public void HandleRegistration(string name, string email, string gender, string address, string password)
         {
-            // If all validations pass, call the repository method to create the customer
+          
             customerRepository.createCustomer(name, email, password, gender, address);
         }
 
