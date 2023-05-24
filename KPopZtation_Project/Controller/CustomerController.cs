@@ -158,6 +158,7 @@ namespace KPopZtation_Project.Controller
 
                 HttpContext.Current.Session["user"] = "Customer";
                 HttpContext.Current.Session["username"] = customerHandler.GetUserName(email);
+                HttpContext.Current.Session["customerID"] = customerHandler.GetUserID(email);
 
                 HttpContext.Current.Response.Redirect("HomePage.aspx");
             }

@@ -1,4 +1,5 @@
 ﻿using KPopZtation_Project.Controller;
+using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace KPopZtation_Project.View
     public partial class LoginPage : System.Web.UI.Page
     {
         CustomerController customerController = new CustomerController();
+        CustomerRepository customerRepository = new CustomerRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -42,6 +44,9 @@ namespace KPopZtation_Project.View
             {
                 lbErrorMessage.Text = errorMessage;
             }
+            
+            
+
         }
     }
 }

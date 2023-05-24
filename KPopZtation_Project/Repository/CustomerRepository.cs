@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
+
 
 namespace KPopZtation_Project.Repository
 {
@@ -49,23 +51,15 @@ namespace KPopZtation_Project.Repository
             return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerName;
         }
 
-        public int GetCustomerID(HttpContext context)
+
+        public string GetUserIDByEmail(string email)
         {
-            if (context.Session["user"] != null && context.Session["user"].ToString() == "Customer")
-            {
-               
-                if (context.Session["customerID"] != null && int.TryParse(context.Session["customerID"].ToString(), out int customerID))
-                {
-                  
-                    return customerID;
-                }
-
-                return 0;
-            }
-
-            return 0;
-     
+            int? customerID = db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerID;
+            return customerID?.ToString();
         }
+
+
+
 
     }
 }

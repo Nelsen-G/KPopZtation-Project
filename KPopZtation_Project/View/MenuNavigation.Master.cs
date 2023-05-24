@@ -31,9 +31,9 @@ namespace KPopZtation_Project
 
         protected void btnCart_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("CartPage.aspx");
         }
-
+    
         protected void btnTransactions_Click(object sender, EventArgs e)
         {
 
@@ -50,6 +50,14 @@ namespace KPopZtation_Project
             Session.RemoveAll();
             Session.Clear();
             Session.Abandon();
+
+            if (Request.Cookies["LoggedInUser"] != null)
+            {
+                HttpCookie loginCookie = new HttpCookie("LoggedInUser");
+                loginCookie.Expires = DateTime.Now.AddDays(-1);
+                HttpContext.Current.Response.Cookies.Add(loginCookie);
+            }
+
 
             Response.Redirect("LoginPage.aspx");
         }
@@ -71,5 +79,6 @@ namespace KPopZtation_Project
         {
             Response.Redirect("LoginPage.aspx");
         }
+
     }
 }

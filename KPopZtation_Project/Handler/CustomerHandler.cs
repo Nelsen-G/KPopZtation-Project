@@ -34,6 +34,11 @@ namespace KPopZtation_Project.Handler
             return customerRepository.GetUserNameByEmail(email);
         }
 
+        public string GetUserID(string email)
+        {
+            return customerRepository.GetUserIDByEmail(email);
+        }
+
         public bool checkEmail(String email)
         {
             return customerRepository.checkCustomerEmail(email);

@@ -203,6 +203,8 @@ namespace KPopZtation_Project.Controller
         {
             AlbumRepository albumRepository = new AlbumRepository();
 
+            CartHandler cartHandler = new CartHandler();
+
             errorMessage = string.Empty;
 
             int qty;
@@ -225,6 +227,8 @@ namespace KPopZtation_Project.Controller
                 errorMessage = "Quantity cannot exceed the stock album.";
                 return;
             }
+
+            cartHandler.HandleInsertion(customerID, albumID, qty);
 
 
         }
