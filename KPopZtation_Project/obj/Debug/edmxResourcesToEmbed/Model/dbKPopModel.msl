@@ -47,6 +47,7 @@
     <EntitySetMapping Name="Carts">
       <EntityTypeMapping TypeName="DatabaseKPopModel.Cart">
         <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
           <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
           <ScalarProperty Name="Qty" ColumnName="Qty" />

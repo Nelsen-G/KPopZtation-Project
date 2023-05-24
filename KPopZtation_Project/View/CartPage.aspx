@@ -15,8 +15,8 @@
                         <div class="card-body">
                             <p>Album Image: <%# Eval("AlbumImage") %></p>
                             <p>Album ID: <%# Eval("AlbumID") %></p>
-                            <p>Quantity: <%# Eval("Quantity") %></p>
-                            <p>Price: <%# Eval("Price") %></p>
+                            <p>Quantity: <%# Eval("AlbumQuantity") %></p>
+                            <p>Price: <%# Eval("AlbumPrice") %></p>
                         </div>
                         <div class="card-footer">
                             <asp:Button ID="btnRemove" runat="server" Text="Remove" OnClick="btnRemove_Click" CommandArgument='<%# Eval("AlbumID") %>' />

@@ -49,15 +49,14 @@
   </EntityType>
   <EntityType Name="Cart">
     <Key>
-      <PropertyRef Name="CustomerID" />
-      <PropertyRef Name="AlbumID" />
-      <PropertyRef Name="Qty" />
+      <PropertyRef Name="CartID" />
     </Key>
     <Property Name="CustomerID" Type="Int32" Nullable="false" />
     <Property Name="AlbumID" Type="Int32" Nullable="false" />
     <Property Name="Qty" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Album" Relationship="Self.FK_Cart_Album" FromRole="Cart" ToRole="Album" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_Cart_Customer" FromRole="Cart" ToRole="Customer" />
+    <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="TransactionDetail">
     <Key>

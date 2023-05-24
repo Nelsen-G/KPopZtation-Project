@@ -20,14 +20,11 @@
     <Property Name="ArtistName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ArtistImage" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJECT\KPOPZTATION_PROJECT\APP_DATA\DATABASEKPOP.MDF.dbo.Cart' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Cart">
     <Key>
-      <PropertyRef Name="CustomerID" />
-      <PropertyRef Name="AlbumID" />
-      <PropertyRef Name="Qty" />
+      <PropertyRef Name="CartID" />
     </Key>
+    <Property Name="CartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerID" Type="int" Nullable="false" />
     <Property Name="AlbumID" Type="int" Nullable="false" />
     <Property Name="Qty" Type="int" Nullable="false" />
@@ -138,15 +135,9 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
   <EntityContainer Name="DatabaseKPopModelStoreContainer">
     <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransactionHeader" EntityType="Self.TransactionHeader" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Cart" EntityType="Self.Cart" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Cart].[CustomerID] AS [CustomerID], 
-    [Cart].[AlbumID] AS [AlbumID], 
-    [Cart].[Qty] AS [Qty]
-    FROM [dbo].[Cart] AS [Cart]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [TransactionDetail].[TransactionID] AS [TransactionID], 

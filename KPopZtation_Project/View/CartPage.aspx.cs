@@ -24,13 +24,23 @@ namespace KPopZtation_Project.View
         {
             CartRepository cartRepository = new CartRepository();
 
-            int customerID = cartRepository.GetCustomerID(HttpContext.Current); 
-            
-            List<Cart> cartItems = cartRepository.GetCartItemsByCustomer(customerID);
+            int customerID = cartRepository.GetCustomerID(HttpContext.Current);
+
+            List<AlbumCartItem> cartItems = cartRepository.GetAlbumItemsByCustomer(customerID);
+
             rptCart.DataSource = cartItems;
             rptCart.DataBind();
         }
 
 
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx");
+        }
+
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx");
+        }
     }
 }

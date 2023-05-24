@@ -37,7 +37,38 @@ namespace KPopZtation_Project.Repository
             return int.Parse(context.Session["customerID"].ToString());
         }
 
+        public List<AlbumCartItem> GetAlbumItemsByCustomer(int customerID)
+        {
+            List<AlbumCartItem> albumItems = db.Carts
+                .Where(c => c.CustomerID == customerID)
+                .Join(
+                    db.Albums,
+                    cart => cart.AlbumID,
+                    album => album.AlbumID,
+                    (cart, album) => new AlbumCartItem
+                    {
+                        AlbumID = album.AlbumID,
+                        AlbumName = album.AlbumName,
+                        AlbumImage = album.AlbumImage,
+                        AlbumPrice = album.AlbumPrice,
+                        AlbumQuantity = cart.Qty
+                    }
+                )
+                .ToList();
 
+            return albumItems;
+        }
 
     }
+
+
+    public class AlbumCartItem
+    {
+        public int AlbumID { get; set; }
+        public string AlbumName { get; set; }
+        public string AlbumImage { get; set; }
+        public decimal AlbumPrice { get; set; }
+        public int AlbumQuantity { get; set; }
+    }
+
 }
