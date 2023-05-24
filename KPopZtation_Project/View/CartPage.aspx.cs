@@ -48,7 +48,32 @@ namespace KPopZtation_Project.View
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HomePage.aspx");
+            CartRepository cartRepository = new CartRepository();
+            TransactionsRepository transactionRepository = new TransactionsRepository();
+
+            int customerID = cartRepository.GetCustomerID(HttpContext.Current);
+            DateTime transactionDate = DateTime.Now;
+            List<Cart> cartItems = cartRepository.GetCartItemsByCustomer(customerID);
+
+            if (cartItems.Count > 0)
+            {
+                TransactionHeader transactionHeader = transactionRepository.AddTransactionHeader(customerID, transactionDate);
+                List<TransactionDetail> transactionDetails = new List<TransactionDetail>();
+
+                foreach (Cart cartItem in cartItems)
+                {
+                    TransactionDetail transactionDetail = transactionRepository.AddTransactionDetail(transactionHeader.TransactionID, cartItem.AlbumID, cartItem.Qty);
+                    transactionDetails.Add(transactionDetail);
+                }
+
+                cartRepository.ClearCart(customerID);
+
+                transactionRepository.SaveTransaction(transactionHeader, transactionDetails);
+
+
+                Response.Redirect("HomePage.aspx");
+            }
+            
         }
     }
 }

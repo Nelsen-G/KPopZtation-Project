@@ -57,6 +57,7 @@
     <EntitySetMapping Name="TransactionDetails">
       <EntityTypeMapping TypeName="DatabaseKPopModel.TransactionDetail">
         <MappingFragment StoreEntitySet="TransactionDetail">
+          <ScalarProperty Name="TransactionDetailID" ColumnName="TransactionDetailID" />
           <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
           <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
           <ScalarProperty Name="Qty" ColumnName="Qty" />

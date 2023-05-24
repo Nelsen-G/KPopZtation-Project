@@ -71,6 +71,14 @@ namespace KPopZtation_Project.Repository
             }
         }
 
+
+        public void ClearCart(int customerID)
+        {
+            List<Cart> cartItems = db.Carts.Where(c => c.CustomerID == customerID).ToList();
+            db.Carts.RemoveRange(cartItems);
+            db.SaveChanges();
+        }
+
     }
 
 

@@ -60,15 +60,14 @@
   </EntityType>
   <EntityType Name="TransactionDetail">
     <Key>
-      <PropertyRef Name="TransactionID" />
-      <PropertyRef Name="AlbumID" />
-      <PropertyRef Name="Qty" />
+      <PropertyRef Name="TransactionDetailID" />
     </Key>
     <Property Name="TransactionID" Type="Int32" Nullable="false" />
     <Property Name="AlbumID" Type="Int32" Nullable="false" />
     <Property Name="Qty" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Album" Relationship="Self.FK_TransactionDetail_Album" FromRole="TransactionDetail" ToRole="Album" />
     <NavigationProperty Name="TransactionHeader" Relationship="Self.FK_TransactionDetail_TransactionHeader" FromRole="TransactionDetail" ToRole="TransactionHeader" />
+    <Property Name="TransactionDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <Association Name="FK_Album_Artist">
     <End Role="Artist" Type="Self.Artist" Multiplicity="1" />

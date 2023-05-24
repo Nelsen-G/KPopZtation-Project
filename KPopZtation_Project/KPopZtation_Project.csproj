@@ -97,6 +97,7 @@
     <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
+    <Content Include="View\TransactionsPage.aspx" />
     <Content Include="View\UpdateAlbum.aspx" />
     <Content Include="View\UpdateArtist.aspx" />
     <Content Include="Web.config" />
@@ -109,6 +110,7 @@
     <Compile Include="Factory\ArtistFactory.cs" />
     <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Factory\CustomerFactory.cs" />
+    <Compile Include="Factory\TransactionsFactory.cs" />
     <Compile Include="Handler\AlbumHandler.cs" />
     <Compile Include="Handler\ArtistHandler.cs" />
     <Compile Include="Handler\CartHandler.cs" />
@@ -116,6 +118,8 @@
     <Compile Include="Repository\AlbumRepository.cs" />
     <Compile Include="Repository\ArtistRepository.cs" />
     <Compile Include="Repository\CartRepository.cs" />
+    <Compile Include="Repository\TransactionFactory.cs" />
+    <Compile Include="Repository\TransactionsRepository.cs" />
     <Compile Include="View\AlbumDetail.aspx.cs">
       <DependentUpon>AlbumDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,6 +219,14 @@
     </Compile>
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\dbSingleton.cs" />
+    <Compile Include="View\TransactionRepository.cs" />
+    <Compile Include="View\TransactionsPage.aspx.cs">
+      <DependentUpon>TransactionsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\TransactionsPage.aspx.designer.cs">
+      <DependentUpon>TransactionsPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\UpdateAlbum.aspx.cs">
       <DependentUpon>UpdateAlbum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

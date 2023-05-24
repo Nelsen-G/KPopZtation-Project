@@ -40,14 +40,11 @@
     <Property Name="CustomerGender" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="CustomerAddress" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJECT\KPOPZTATION_PROJECT\APP_DATA\DATABASEKPOP.MDF.dbo.TransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TransactionDetail">
     <Key>
-      <PropertyRef Name="TransactionID" />
-      <PropertyRef Name="AlbumID" />
-      <PropertyRef Name="Qty" />
+      <PropertyRef Name="TransactionDetailID" />
     </Key>
+    <Property Name="TransactionDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TransactionID" Type="int" Nullable="false" />
     <Property Name="AlbumID" Type="int" Nullable="false" />
     <Property Name="Qty" Type="int" Nullable="false" />
@@ -137,14 +134,8 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
     <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransactionHeader" EntityType="Self.TransactionHeader" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TransactionDetail].[TransactionID] AS [TransactionID], 
-    [TransactionDetail].[AlbumID] AS [AlbumID], 
-    [TransactionDetail].[Qty] AS [Qty]
-    FROM [dbo].[TransactionDetail] AS [TransactionDetail]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK_Album_Artist" Association="Self.FK_Album_Artist">
       <End Role="Artist" EntitySet="Artist" />
       <End Role="Album" EntitySet="Album" />

@@ -45,14 +45,11 @@
           <Property Name="CustomerGender" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="CustomerAddress" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJECT\KPOPZTATION_PROJECT\APP_DATA\DATABASEKPOP.MDF.dbo.TransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TransactionDetail">
           <Key>
-            <PropertyRef Name="TransactionID" />
-            <PropertyRef Name="AlbumID" />
-            <PropertyRef Name="Qty" />
+            <PropertyRef Name="TransactionDetailID" />
           </Key>
+          <Property Name="TransactionDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TransactionID" Type="int" Nullable="false" />
           <Property Name="AlbumID" Type="int" Nullable="false" />
           <Property Name="Qty" Type="int" Nullable="false" />
@@ -142,14 +139,8 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
           <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionHeader" EntityType="Self.TransactionHeader" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TransactionDetail].[TransactionID] AS [TransactionID], 
-    [TransactionDetail].[AlbumID] AS [AlbumID], 
-    [TransactionDetail].[Qty] AS [Qty]
-    FROM [dbo].[TransactionDetail] AS [TransactionDetail]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Album_Artist" Association="Self.FK_Album_Artist">
             <End Role="Artist" EntitySet="Artist" />
             <End Role="Album" EntitySet="Album" />
@@ -239,15 +230,14 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
         </EntityType>
         <EntityType Name="TransactionDetail">
           <Key>
-            <PropertyRef Name="TransactionID" />
-            <PropertyRef Name="AlbumID" />
-            <PropertyRef Name="Qty" />
+            <PropertyRef Name="TransactionDetailID" />
           </Key>
           <Property Name="TransactionID" Type="Int32" Nullable="false" />
           <Property Name="AlbumID" Type="Int32" Nullable="false" />
           <Property Name="Qty" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Album" Relationship="Self.FK_TransactionDetail_Album" FromRole="TransactionDetail" ToRole="Album" />
           <NavigationProperty Name="TransactionHeader" Relationship="Self.FK_TransactionDetail_TransactionHeader" FromRole="TransactionDetail" ToRole="TransactionHeader" />
+          <Property Name="TransactionDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="FK_Album_Artist">
           <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
@@ -415,6 +405,7 @@ warning 6002: The table/view 'D:\DOCUMENTS\GITHUB\KPOPZTATION\KPOPZTATION-PROJEC
           <EntitySetMapping Name="TransactionDetails">
             <EntityTypeMapping TypeName="DatabaseKPopModel.TransactionDetail">
               <MappingFragment StoreEntitySet="TransactionDetail">
+                <ScalarProperty Name="TransactionDetailID" ColumnName="TransactionDetailID" />
                 <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
                 <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
                 <ScalarProperty Name="Qty" ColumnName="Qty" />
