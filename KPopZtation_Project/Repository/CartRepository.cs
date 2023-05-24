@@ -59,6 +59,18 @@ namespace KPopZtation_Project.Repository
             return albumItems;
         }
 
+
+        public void RemoveAlbumFromCart(int customerID, int albumID)
+        {
+            Cart cartItem = db.Carts.FirstOrDefault(c => c.CustomerID == customerID && c.AlbumID == albumID);
+
+            if (cartItem != null)
+            {
+                db.Carts.Remove(cartItem);
+                db.SaveChanges();
+            }
+        }
+
     }
 
 

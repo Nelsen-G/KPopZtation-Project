@@ -35,7 +35,15 @@ namespace KPopZtation_Project.View
 
         protected void btnRemove_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HomePage.aspx");
+            Button btnRemove = (Button)sender;
+            int albumID = Convert.ToInt32(btnRemove.CommandArgument);
+
+            CartRepository cartRepository = new CartRepository();
+            int customerID = cartRepository.GetCustomerID(HttpContext.Current);
+
+            cartRepository.RemoveAlbumFromCart(customerID, albumID);
+
+            BindCartItems();
         }
 
         protected void btnCheckout_Click(object sender, EventArgs e)
