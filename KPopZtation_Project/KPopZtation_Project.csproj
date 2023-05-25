@@ -145,7 +145,6 @@
     <Compile Include="Repository\AlbumRepository.cs" />
     <Compile Include="Repository\ArtistRepository.cs" />
     <Compile Include="Repository\CartRepository.cs" />
-    <Compile Include="Repository\TransactionFactory.cs" />
     <Compile Include="Repository\TransactionsRepository.cs" />
     <Compile Include="View\AlbumDetail.aspx.cs">
       <DependentUpon>AlbumDetail.aspx</DependentUpon>

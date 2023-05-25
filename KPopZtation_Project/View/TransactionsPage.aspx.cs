@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KPopZtation_Project.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,16 @@ namespace KPopZtation_Project.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            TransactionsRepository transactionsRepository = new TransactionsRepository();
 
+            if (!IsPostBack)
+            {
+                
+                List<object> transactions = transactionsRepository.GetTransactions();
+
+                rptTransactions.DataSource = transactions;
+                rptTransactions.DataBind();
+            }
         }
     }
 }
