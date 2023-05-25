@@ -11,9 +11,19 @@
     </div>
 
 
-    <div>
+            <div>
                 <asp:Label ID="lbAlbumName" runat="server" Text=""></asp:Label>
             </div>
+
+                <div>
+                <asp:Label ID="lbAlbumImage" runat="server" Text="Album Image"></asp:Label>
+                </div>
+                
+                <div>
+                    <asp:Image ID="imgAlbum" runat="server" CssClass="albumImage" Width="200" />
+                </div>
+
+
             <div>
                 <asp:Label ID="lbDescription" runat="server" Text=""></asp:Label>
             </div>

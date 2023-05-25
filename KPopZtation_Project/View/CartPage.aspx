@@ -14,6 +14,11 @@
                         </div>
                         <div class="card-body">
                             <p>Album Image: <%# Eval("AlbumImage") %></p>
+                            <div>
+                                <img class="albumImage" src='<%# ResolveUrl("~/Assets/Albums/" + Eval("AlbumImage")) %>' style="width: 200px; height: auto;" alt="Album Image" />
+                            </div>
+
+
                             <p>Album ID: <%# Eval("AlbumID") %></p>
                             <p>Quantity: <%# Eval("AlbumQuantity") %></p>
                             <p>Price: <%# Eval("AlbumPrice") %></p>

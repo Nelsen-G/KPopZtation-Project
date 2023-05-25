@@ -26,7 +26,11 @@
 
                 <div>
                 <asp:Label ID="lbArtistImage" runat="server" Text="Artist Image"></asp:Label>
-                <asp:Label ID="lbImage" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lbImage" runat="server" Text=""></asp:Label>    
+                </div>
+                
+                <div>
+                    <asp:Image ID="imgArtist" runat="server" CssClass="artistImage" Width="200" />
                 </div>
 
             </div>
@@ -40,6 +44,11 @@
                         <div>
                             
                             <p>Image: <%# Eval("AlbumImage") %></p>
+                            <div>
+                                <img class="albumImage" src='<%# ResolveUrl("~/Assets/Albums/" + Eval("AlbumImage")) %>' style="width: 200px; height: auto;" alt="Album Image" />
+                            </div>
+
+
                             <p>Name: <%# Eval("AlbumName") %></p>
                             <p>Price: <%# Eval("AlbumPrice") %></p>
                             <p>Description: <%# Eval("AlbumDescription") %></p>

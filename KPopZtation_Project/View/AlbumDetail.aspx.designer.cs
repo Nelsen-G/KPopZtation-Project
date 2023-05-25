@@ -33,6 +33,24 @@ namespace KPopZtation_Project.View
         protected global::System.Web.UI.WebControls.Label lbAlbumName;
 
         /// <summary>
+        /// lbAlbumImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbAlbumImage;
+
+        /// <summary>
+        /// imgAlbum control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgAlbum;
+
+        /// <summary>
         /// lbDescription control.
         /// </summary>
         /// <remarks>

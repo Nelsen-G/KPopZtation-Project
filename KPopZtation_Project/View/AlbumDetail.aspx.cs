@@ -26,6 +26,9 @@ namespace KPopZtation_Project.View
 
                 lbAlbumName.Text = "Album Name: " + album.AlbumName;
                 lbDescription.Text = "Album Description: " + album.AlbumDescription;
+                lbAlbumImage.Text = album.AlbumImage;
+                imgAlbum.ImageUrl = ResolveUrl("~/Assets/Albums/" + album.AlbumImage);
+
                 lbPrice.Text = "Price: Rp " + album.AlbumPrice.ToString();
                 lbStock.Text = "Stock: " + album.AlbumStock.ToString();
 

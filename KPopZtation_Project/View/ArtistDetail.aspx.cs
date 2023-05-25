@@ -31,6 +31,7 @@ namespace KPopZtation_Project.View
                 lbID.Text = art.ArtistID.ToString();
                 lbName.Text = art.ArtistName;
                 lbImage.Text = art.ArtistImage;
+                imgArtist.ImageUrl = ResolveUrl("~/Assets/Artists/" + art.ArtistImage);
 
                 // albums owned by the artist
                 albums = albumRepository.getAlbumsByArtist(artistNumber);

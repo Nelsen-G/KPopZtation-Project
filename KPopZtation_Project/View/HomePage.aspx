@@ -20,6 +20,11 @@
             <div class="card-body">
                 <p>Artist ID: <%# Eval("ArtistID") %></p>
                 <p>Artist Image: <%# Eval("ArtistImage") %></p>
+                 
+                <div>
+                    <img class="artistImage" src='<%# ResolveUrl("~/Assets/Artists/" + Eval("ArtistImage")) %>' style="width: 200px; height: auto;" alt="Artist Image" />
+                </div>
+
                 <asp:Button ID="btnDetails" runat="server" Text="See Details" OnClick="btnDetails_Click" CommandArgument='<%# Eval("ArtistID") %>' />
             </div>
             <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>

@@ -45,7 +45,7 @@
 
 
         <div>
-            <asp:Button ID="btnUpdate" runat="server" Text="Register" OnClick="btnUpdate_Click" />
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
         </div>
 
 
