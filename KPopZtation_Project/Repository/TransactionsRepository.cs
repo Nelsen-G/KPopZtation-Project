@@ -40,21 +40,17 @@ namespace KPopZtation_Project.Repository
 
         public List<object> GetTransactions()
         {
-
             var transactions = (from th in db.TransactionHeaders
                                 join td in db.TransactionDetails on th.TransactionID equals td.TransactionID
+                                group new { td.AlbumID, td.Album.AlbumName, td.Qty, td.Album.AlbumPrice, td.Album.AlbumImage }
+                                by new { th.TransactionID, th.TransactionDate, th.CustomerID, th.Customer.CustomerName } into g
                                 select new
                                 {
-                                    TransactionID = th.TransactionID,
-                                    TransactionDate = th.TransactionDate,
-                                    CustomerID = th.CustomerID,
-                                    CustomerName = th.Customer.CustomerName,
-                                 
-                                    AlbumID = td.AlbumID,
-                                    AlbumName = td.Album.AlbumName,
-                                    AlbumQuantity = td.Qty,
-                                    AlbumPrice = td.Album.AlbumPrice,
-                                    AlbumImage = td.Album.AlbumImage
+                                    TransactionID = g.Key.TransactionID,
+                                    TransactionDate = g.Key.TransactionDate,
+                                    CustomerID = g.Key.CustomerID,
+                                    CustomerName = g.Key.CustomerName,
+                                    Albums = g.ToList()
                                 }).ToList<object>();
 
             return transactions;

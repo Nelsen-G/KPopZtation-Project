@@ -7,29 +7,28 @@
     <h1>Transactions Page</h1>
 
     <asp:Repeater ID="rptTransactions" runat="server">
-                <ItemTemplate>
-                    <div class="card">
-                        
-                        <div class="card-body">
-                    
-                            <p>Transaction ID: <%# Eval("TransactionID") %></p>
-                            <p>Transaction Date: <%# Eval("TransactionDate", "{0:dd/MM/yyyy}") %></p>
+    <ItemTemplate>
+        <div class="card">
+            <div class="card-body">
+                <h3>Transaction ID: <%# Eval("TransactionID") %></h3>
+                <p>Transaction Date: <%# Eval("TransactionDate", "{0:dd/MM/yyyy}") %></p>
+                <p>Customer Name: <%# Eval("CustomerName") %></p>
 
-                            <p>Customer Name: <%# Eval("CustomerName") %></p>
-
+                <asp:Repeater ID="rptAlbums" runat="server" DataSource='<%# Eval("Albums") %>'>
+                    <ItemTemplate>
+                        <div>
                             <p>Image: <%# Eval("AlbumImage") %></p>
                             <img class="albumImage" src='<%# ResolveUrl("~/Assets/Albums/" + Eval("AlbumImage")) %>' style="width: 200px; height: auto;" alt="Album Image" />
-                            
-                            <p>Album Image: <%# Eval("AlbumImage") %></p>
                             <p>Album Name: <%# Eval("AlbumName") %></p>
-                            <p>Quantity: <%# Eval("AlbumQuantity") %></p>
+                            <p>Quantity: <%# Eval("Qty") %></p>
                             <p>Price: <%# Eval("AlbumPrice") %></p>
-
-
                         </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </ItemTemplate>
+</asp:Repeater>
 
 
 </asp:Content>
