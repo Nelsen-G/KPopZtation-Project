@@ -108,7 +108,84 @@ namespace KPopZtation_Project.Controller
         }
 
 
-        public bool Login(string email, string password, bool rememberMe, out string errorMessage)
+        public void UpdateCustomer(int id, string name, string email, string gender, string address, string password, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            // Validate Name
+            if (string.IsNullOrEmpty(name))
+            {
+                errorMessage = "Name must be filled";
+                return;
+            }
+            else if (name.Length < 5 || name.Length > 50)
+            {
+                errorMessage = "Name must be between 5 and 50 characters";
+                return;
+            }
+
+
+            string previousEmail = customerHandler.GetCustomerEmail(id);
+            // Validate Email
+            if (string.IsNullOrEmpty(email))
+            {
+                errorMessage = "Email must be filled";
+                return;
+            }
+
+            if (!email.Equals(previousEmail, StringComparison.OrdinalIgnoreCase))
+            {
+                // kalo diganti namanya, baru cek
+                if (!customerHandler.checkEmail(email))
+                {
+                    errorMessage = "Email Name must be unique";
+                    return;
+                }
+
+            }
+            else
+            {
+                email = previousEmail;
+            }
+
+
+            // Validate Gender
+            if (string.IsNullOrEmpty(gender))
+            {
+                errorMessage = "Gender must be selected.";
+                return;
+            }
+
+            // Validate Address
+            if (string.IsNullOrEmpty(address))
+            {
+                errorMessage = "Address must be filled";
+                return;
+            }
+            else if (!address.EndsWith("Street", StringComparison.OrdinalIgnoreCase))
+            {
+                errorMessage = "Address must end with 'Street'";
+                return;
+            }
+
+            // Validate Password
+            if (string.IsNullOrEmpty(password))
+            {
+                errorMessage = "Password must be filled";
+                return;
+            }
+            else if (!IsPasswordAlphanumeric(password))
+            {
+                errorMessage = "Password must be alphanumeric";
+                return;
+            }
+
+
+            customerHandler.HandleUpdate(id, name, email, gender, address, password);
+
+        }
+
+            public bool Login(string email, string password, bool rememberMe, out string errorMessage)
         {
 
             bool loginSuccess = customerHandler.CheckLogin(email, password);

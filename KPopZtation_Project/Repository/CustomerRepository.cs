@@ -59,6 +59,39 @@ namespace KPopZtation_Project.Repository
         }
 
 
+        public string SelectCustomerEmail(int id)
+        {
+            Customer customer = db.Customers.FirstOrDefault(c => c.CustomerID == id);
+            return customer != null ? customer.CustomerEmail : string.Empty;
+        }
+
+
+        public int GetCustomerID(HttpContext context)
+        {
+            return int.Parse(context.Session["customerID"].ToString());
+        }
+
+
+        public Customer updateCustomer(int id, string name, string email, string gender, string address, string password)
+        {
+            Customer updateC = new Customer();
+            updateC = db.Customers.Find(id);
+
+            updateC.CustomerName = name;
+            updateC.CustomerEmail = email;
+            updateC.CustomerGender = gender;
+            updateC.CustomerAddress = address;
+            updateC.CustomerPassword = password;
+
+            db.SaveChanges();
+
+            return updateC;
+        }
+
+        public Customer selectCustomer(int customerID)
+        {
+            return db.Customers.FirstOrDefault(c => c.CustomerID == customerID);
+        }
 
 
     }

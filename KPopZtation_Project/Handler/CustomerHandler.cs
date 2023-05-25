@@ -1,4 +1,5 @@
-﻿using KPopZtation_Project.Repository;
+﻿using KPopZtation_Project.Model;
+using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,14 @@ namespace KPopZtation_Project.Handler
             customerRepository.createCustomer(name, email, password, gender, address);
         }
 
+
+        public void HandleUpdate(int id, string name, string email, string gender, string address, string password)
+        {
+
+            customerRepository.updateCustomer(id, name, email, gender, address, password);
+        }
+
+
         public bool CheckLogin(string email, string password)
         {
             bool loginSuccess = customerRepository.ValidateCredentials(email, password);
@@ -43,6 +52,15 @@ namespace KPopZtation_Project.Handler
         {
             return customerRepository.checkCustomerEmail(email);
         }
+
+
+        public string GetCustomerEmail(int id)
+        {
+            return customerRepository.SelectCustomerEmail(id);
+        }
+
+
+
 
     }
 }

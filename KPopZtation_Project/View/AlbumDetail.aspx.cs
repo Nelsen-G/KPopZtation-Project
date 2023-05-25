@@ -60,7 +60,7 @@ namespace KPopZtation_Project.View
             AlbumController albumController = new AlbumController();
             CartRepository cartRepository = new CartRepository();
 
-            int loggedInCustomerID = cartRepository.GetCustomerID(HttpContext.Current);
+            int loggedInCustomerID = customerRepository.GetCustomerID(HttpContext.Current);
 
             int albumID = int.Parse(Request.QueryString["id"]);
 

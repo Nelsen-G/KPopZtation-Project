@@ -44,5 +44,8 @@ namespace KPopZtation_Project.Handler
 
             artistRepository.updateArtist(id, name, fileName);
         }
+
+
+
     }
 }

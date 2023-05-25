@@ -23,8 +23,9 @@ namespace KPopZtation_Project.View
         protected void BindCartItems()
         {
             CartRepository cartRepository = new CartRepository();
+            CustomerRepository customerRepository = new CustomerRepository();
 
-            int customerID = cartRepository.GetCustomerID(HttpContext.Current);
+            int customerID = customerRepository.GetCustomerID(HttpContext.Current);
 
             List<AlbumCartItem> cartItems = cartRepository.GetAlbumItemsByCustomer(customerID);
 
@@ -39,7 +40,9 @@ namespace KPopZtation_Project.View
             int albumID = Convert.ToInt32(btnRemove.CommandArgument);
 
             CartRepository cartRepository = new CartRepository();
-            int customerID = cartRepository.GetCustomerID(HttpContext.Current);
+            CustomerRepository customerRepository = new CustomerRepository();
+
+            int customerID = customerRepository.GetCustomerID(HttpContext.Current);
 
             cartRepository.RemoveAlbumFromCart(customerID, albumID);
 
@@ -50,8 +53,9 @@ namespace KPopZtation_Project.View
         {
             CartRepository cartRepository = new CartRepository();
             TransactionsRepository transactionRepository = new TransactionsRepository();
+            CustomerRepository customerRepository = new CustomerRepository();
 
-            int customerID = cartRepository.GetCustomerID(HttpContext.Current);
+            int customerID = customerRepository.GetCustomerID(HttpContext.Current);
             DateTime transactionDate = DateTime.Now;
             List<Cart> cartItems = cartRepository.GetCartItemsByCustomer(customerID);
 

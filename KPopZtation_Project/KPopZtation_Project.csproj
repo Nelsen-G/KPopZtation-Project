@@ -97,9 +97,11 @@
     <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
     <Content Include="View\RegisterPage.aspx" />
+    <Content Include="View\TransactionReportPage.aspx" />
     <Content Include="View\TransactionsPage.aspx" />
     <Content Include="View\UpdateAlbum.aspx" />
     <Content Include="View\UpdateArtist.aspx" />
+    <Content Include="View\UpdateProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -219,7 +221,13 @@
     </Compile>
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="Repository\dbSingleton.cs" />
-    <Compile Include="View\TransactionRepository.cs" />
+    <Compile Include="View\TransactionReportPage.aspx.cs">
+      <DependentUpon>TransactionReportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\TransactionReportPage.aspx.designer.cs">
+      <DependentUpon>TransactionReportPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\TransactionsPage.aspx.cs">
       <DependentUpon>TransactionsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +248,13 @@
     </Compile>
     <Compile Include="View\UpdateArtist.aspx.designer.cs">
       <DependentUpon>UpdateArtist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\UpdateProfile.aspx.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\UpdateProfile.aspx.designer.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

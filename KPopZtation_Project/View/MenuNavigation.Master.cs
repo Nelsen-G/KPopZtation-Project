@@ -19,10 +19,6 @@ namespace KPopZtation_Project
             Response.Redirect("HomePage.aspx");
         }
 
-        protected void btnProduct_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
@@ -36,12 +32,12 @@ namespace KPopZtation_Project
     
         protected void btnTransactions_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("TransactionsPage.aspx");
         }
 
         protected void btnUpdateProfile_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("UpdateProfile.aspx");
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)

@@ -32,10 +32,7 @@ namespace KPopZtation_Project.Repository
         }
 
 
-        public int GetCustomerID(HttpContext context)
-        {
-            return int.Parse(context.Session["customerID"].ToString());
-        }
+        
 
         public List<AlbumCartItem> GetAlbumItemsByCustomer(int customerID)
         {
