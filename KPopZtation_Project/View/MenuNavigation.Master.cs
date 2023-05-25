@@ -60,7 +60,7 @@ namespace KPopZtation_Project
 
         protected void btnTransactionReport_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("TransactionReportPage.aspx");
         }
 
 

@@ -56,7 +56,11 @@ namespace KPopZtation_Project.Repository
             return transactions;
         }
 
-
+        public static List<TransactionHeader> GetTransactionsFromRepo()
+        {
+            dbKPopEntities db = new dbKPopEntities();
+            return db.TransactionHeaders.ToList();
+        }
 
     }
 }
