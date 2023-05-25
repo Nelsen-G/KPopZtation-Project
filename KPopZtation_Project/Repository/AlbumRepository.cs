@@ -22,6 +22,38 @@ namespace KPopZtation_Project.Repository
             return db.Albums.FirstOrDefault(a => a.AlbumID == albumNumber);
         }
 
+        public void SubtractStock(int albumID, int quantity)
+        {
+            AlbumRepository albumRepository = new AlbumRepository();
+
+            Album album = albumRepository.selectAlbum(albumID);
+
+            if (album != null)
+            {
+               
+                album.AlbumStock -= quantity;
+
+                albumRepository.updateAlbum(album.AlbumID, album.AlbumName, album.AlbumDescription, album.AlbumPrice, album.AlbumStock, album.AlbumImage);
+
+            }
+        }
+
+        public void AddStock(int albumID, int quantity)
+        {
+            AlbumRepository albumRepository = new AlbumRepository();
+
+            Album album = albumRepository.selectAlbum(albumID);
+
+            if (album != null)
+            {
+
+                album.AlbumStock += quantity;
+
+                albumRepository.updateAlbum(album.AlbumID, album.AlbumName, album.AlbumDescription, album.AlbumPrice, album.AlbumStock, album.AlbumImage);
+
+            }
+        }
+
         public int getArtistFromAlbum(int albumNumber)
         {
             int artistID = 0;

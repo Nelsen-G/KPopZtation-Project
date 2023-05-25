@@ -41,8 +41,13 @@ namespace KPopZtation_Project.View
 
             CartRepository cartRepository = new CartRepository();
             CustomerRepository customerRepository = new CustomerRepository();
+            AlbumRepository albumRepository = new AlbumRepository();
 
             int customerID = customerRepository.GetCustomerID(HttpContext.Current);
+
+            int removedAlbumQuantity = cartRepository.GetAlbumQuantityInCart(customerID, albumID);
+
+            albumRepository.AddStock(albumID, removedAlbumQuantity);
 
             cartRepository.RemoveAlbumFromCart(customerID, albumID);
 

@@ -61,7 +61,7 @@ namespace KPopZtation_Project.View
         {
             CustomerRepository customerRepository = new CustomerRepository();
             AlbumController albumController = new AlbumController();
-            CartRepository cartRepository = new CartRepository();
+            AlbumRepository albumRepository = new AlbumRepository();
 
             int loggedInCustomerID = customerRepository.GetCustomerID(HttpContext.Current);
 
@@ -73,12 +73,16 @@ namespace KPopZtation_Project.View
 
             albumController.validateAddToCart(loggedInCustomerID, albumID, quantity, out errorMessage);
 
+            int qty = int.Parse(quantity);
+            albumRepository.SubtractStock(albumID, qty);
 
             if (!string.IsNullOrEmpty(errorMessage))
             {
                 lbErrorMessage.Text = errorMessage;
                 return;
             }
+
+            Response.Redirect(Request.RawUrl);
 
 
         }

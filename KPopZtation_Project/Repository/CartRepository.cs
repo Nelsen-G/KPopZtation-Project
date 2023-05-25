@@ -32,7 +32,12 @@ namespace KPopZtation_Project.Repository
         }
 
 
-        
+        public int GetAlbumQuantityInCart(int customerID, int albumID)
+        {
+            Cart cartItem = db.Carts.FirstOrDefault(c => c.CustomerID == customerID && c.AlbumID == albumID);
+            return cartItem.Qty;
+    
+        }
 
         public List<AlbumCartItem> GetAlbumItemsByCustomer(int customerID)
         {
