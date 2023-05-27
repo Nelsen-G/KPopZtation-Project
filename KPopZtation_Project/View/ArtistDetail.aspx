@@ -37,7 +37,9 @@
             <div>
                 <h2>Albums</h2>
 
-                  <asp:Button ID="btnInsertAlbum" runat="server" Text="Insert Album" OnClick="btnInsertAlbum_Click"  />
+                        <% if(Session["user"].ToString() == "Admin") {%>
+        <asp:Button ID="btnInsertAlbum" runat="server" Text="Insert Album" OnClick="btnInsertAlbum_Click"  />
+        <% } %>
                          
                 <asp:Repeater ID="rptAlbums" runat="server">
                     <ItemTemplate>

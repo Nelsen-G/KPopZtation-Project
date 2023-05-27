@@ -17,6 +17,11 @@ namespace KPopZtation_Project.Handler
             albumRepository = new AlbumRepository();
         }
 
+        public static List<Album> GetAlbums()
+        {
+            return AlbumRepository.GetAlbumsFromRepo();
+        }
+
         public string getFileName(int id)
         {
             Album album = albumRepository.selectAlbum(id);

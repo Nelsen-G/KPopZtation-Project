@@ -19,7 +19,6 @@ namespace KPopZtation_Project.Handler
 
         public void HandleRegistration(string name, string email, string gender, string address, string password)
         {
-          
             customerRepository.createCustomer(name, email, password, gender, address);
         }
 

@@ -37,11 +37,7 @@ namespace KPopZtation_Project.View
                 albums = albumRepository.getAlbumsByArtist(artistNumber);
                 rptAlbums.DataSource = albums;
                 rptAlbums.DataBind();
-
-                
-                
             }
-
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -63,9 +59,6 @@ namespace KPopZtation_Project.View
 
             Response.Redirect(Request.RawUrl);
         }
-
-        
-
         protected void btnAlbumDetail_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;

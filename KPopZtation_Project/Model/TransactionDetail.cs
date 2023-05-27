@@ -14,10 +14,10 @@ namespace KPopZtation_Project.Model
     
     public partial class TransactionDetail
     {
+        public int TransactionDetailID { get; set; }
         public int TransactionID { get; set; }
         public int AlbumID { get; set; }
         public int Qty { get; set; }
-        public int TransactionDetailID { get; set; }
     
         public virtual Album Album { get; set; }
         public virtual TransactionHeader TransactionHeader { get; set; }

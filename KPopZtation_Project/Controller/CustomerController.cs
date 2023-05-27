@@ -3,6 +3,7 @@ using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace KPopZtation_Project.Controller
@@ -69,6 +70,18 @@ namespace KPopZtation_Project.Controller
             else if (!customerHandler.checkEmail(email))
             {
                 errorMessage = "Email is already used";
+                return;
+            }
+
+            string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+
+            Regex regex = new Regex(pattern);
+
+            Match match = regex.Match(email);
+
+            if (!match.Success)
+            {
+                errorMessage = "Email must contain @ and . at least once";
                 return;
             }
 
@@ -185,7 +198,7 @@ namespace KPopZtation_Project.Controller
 
         }
 
-            public bool Login(string email, string password, bool rememberMe, out string errorMessage)
+        public bool Login(string email, string password, bool rememberMe, out string errorMessage)
         {
 
             bool loginSuccess = customerHandler.CheckLogin(email, password);
@@ -243,8 +256,6 @@ namespace KPopZtation_Project.Controller
             return loginSuccess;
 
         }
-
-
 
     }
 }

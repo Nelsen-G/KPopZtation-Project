@@ -14,10 +14,10 @@ namespace KPopZtation_Project.Model
     
     public partial class Cart
     {
+        public int CartID { get; set; }
         public int CustomerID { get; set; }
         public int AlbumID { get; set; }
         public int Qty { get; set; }
-        public int CartID { get; set; }
     
         public virtual Album Album { get; set; }
         public virtual Customer Customer { get; set; }

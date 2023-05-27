@@ -123,13 +123,13 @@ namespace KPopZtation_Project
         protected global::System.Web.UI.WebControls.Button btnHome3;
 
         /// <summary>
-        /// btnTransactionReport control.
+        /// btnTransaction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTransactionReport;
+        protected global::System.Web.UI.WebControls.Button btnTransaction;
 
         /// <summary>
         /// btnUpdateProfile2 control.

@@ -1238,10 +1238,6 @@
     <Content Include="Assets\Artists\638059446432559006.jfif" />
     <Content Include="Assets\Artists\638059447901481658.jfif" />
     <Content Include="Assets\Artists\638059450808002463.jfif" />
-    <Content Include="View\AlbumDetail.aspx" />
-    <Content Include="View\ArtistDetail.aspx" />
-    <Content Include="View\CartPage.aspx" />
-    <Content Include="View\HomePage.aspx" />
     <Content Include="Model\dbKPopModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dbKPopModel.edmx</DependentUpon>
@@ -1252,6 +1248,10 @@
       <DependentUpon>dbKPopModel.edmx</DependentUpon>
       <LastGenOutput>dbKPopModel.cs</LastGenOutput>
     </Content>
+    <Content Include="View\AlbumDetail.aspx" />
+    <Content Include="View\ArtistDetail.aspx" />
+    <Content Include="View\CartPage.aspx" />
+    <Content Include="View\HomePage.aspx" />
     <Content Include="View\InsertAlbum.aspx" />
     <Content Include="View\InsertArtist.aspx" />
     <Content Include="View\LoginPage.aspx" />
@@ -1282,6 +1282,39 @@
     <Compile Include="Handler\CartHandler.cs" />
     <Compile Include="Handler\CustomerHandler.cs" />
     <Compile Include="Handler\TransactionHandler.cs" />
+    <Compile Include="Model\Album.cs">
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Artist.cs">
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cart.cs">
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Customer.cs">
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\dbKPopModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbKPopModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\dbKPopModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\dbKPopModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbKPopModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransactionDetail.cs">
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransactionHeader.cs">
+      <DependentUpon>dbKPopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Report\TransactionCrystalReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1348,39 +1381,6 @@
     <Compile Include="View\MenuNavigation.Master.designer.cs">
       <DependentUpon>MenuNavigation.Master</DependentUpon>
     </Compile>
-    <Compile Include="Model\Album.cs">
-      <DependentUpon>dbKPopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Artist.cs">
-      <DependentUpon>dbKPopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Cart.cs">
-      <DependentUpon>dbKPopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Customer.cs">
-      <DependentUpon>dbKPopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\dbKPopModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbKPopModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\dbKPopModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbKPopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\dbKPopModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbKPopModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\TransactionDetail.cs">
-      <DependentUpon>dbKPopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\TransactionHeader.cs">
-      <DependentUpon>dbKPopModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
@@ -1429,13 +1429,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="View\MenuNavigation.Master" />
-    <EntityDeploy Include="Model\dbKPopModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbKPopModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Model\dbKPopModel.edmx.diagram">
-      <DependentUpon>dbKPopModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Dataset\DataSetKPop.xsc">
       <DependentUpon>DataSetKPop.xsd</DependentUpon>
     </Content>
@@ -1446,6 +1439,13 @@
     </None>
     <Content Include="Dataset\DataSetKPop.xss">
       <DependentUpon>DataSetKPop.xsd</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Model\dbKPopModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbKPopModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\dbKPopModel.edmx.diagram">
+      <DependentUpon>dbKPopModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">

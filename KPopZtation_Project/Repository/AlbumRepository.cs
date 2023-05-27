@@ -10,7 +10,13 @@ namespace KPopZtation_Project.Repository
     public class AlbumRepository
     {
 
-        dbKPopEntities db = dbSingleton.getInstance();
+        DatabaseKPopEntities1 db = dbSingleton.getInstance();
+
+        public static List<Album> GetAlbumsFromRepo()
+        {
+            DatabaseKPopEntities1 db = new DatabaseKPopEntities1();
+            return db.Albums.ToList();
+        }
 
         public List<Album> getAlbumsByArtist(int artistID)
         {

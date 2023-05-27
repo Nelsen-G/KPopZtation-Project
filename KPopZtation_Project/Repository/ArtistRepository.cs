@@ -10,7 +10,7 @@ namespace KPopZtation_Project.Repository
     public class ArtistRepository
     {
 
-        dbKPopEntities db = dbSingleton.getInstance();
+        DatabaseKPopEntities1 db = dbSingleton.getInstance();
 
         public bool checkArtistName(String name)
         {

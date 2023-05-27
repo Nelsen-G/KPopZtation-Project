@@ -32,9 +32,12 @@ namespace KPopZtation_Project.View
 				return;
 			}
 
-
-			Response.Redirect(Request.RawUrl);
-
+			Response.Redirect("HomePage.aspx");
 		}
-    }
+
+		protected void btnBack_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("HomePage.aspx");
+		}
+	}
 }

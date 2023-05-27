@@ -12,7 +12,7 @@ namespace KPopZtation_Project.Repository
     public class CustomerRepository
     {
 
-        dbKPopEntities db = dbSingleton.getInstance();
+        DatabaseKPopEntities1 db = dbSingleton.getInstance();
 
         public Customer createCustomer(String name, String email, String password, String gender, String address)
         {
@@ -22,8 +22,6 @@ namespace KPopZtation_Project.Repository
 
             db.Customers.Add(newCustomer);
             db.SaveChanges();
-
-      
 
             return newCustomer;
         }
@@ -50,7 +48,6 @@ namespace KPopZtation_Project.Repository
         {
             return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerName;
         }
-
 
         public string GetUserIDByEmail(string email)
         {

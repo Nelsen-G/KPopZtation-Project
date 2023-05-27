@@ -1,4 +1,5 @@
 ﻿using KPopZtation_Project.Controller;
+using KPopZtation_Project.Handler;
 using KPopZtation_Project.Model;
 using KPopZtation_Project.Repository;
 using System;
@@ -21,6 +22,7 @@ namespace KPopZtation_Project.View
 
                 // ambil albumID
                 string albumPassedID = Request.QueryString["id"];
+                string artistID = Request.QueryString["id"];
                 int albumNumber = Convert.ToInt32(albumPassedID);
 
                 Album abm = albumRepository.selectAlbum(albumNumber);
@@ -30,11 +32,9 @@ namespace KPopZtation_Project.View
                 tbImage.Text = abm.AlbumImage;
                 tbPrice.Text = abm.AlbumPrice.ToString();
                 tbStock.Text = abm.AlbumStock.ToString();
-                tbDescription.Text = abm.AlbumDescription;
-
-
+                tbDescription.Text = abm.AlbumDescription;  
+                }
             }
-        }
 
         protected void backButton_Click(object sender, EventArgs e)
         {
@@ -53,6 +53,7 @@ namespace KPopZtation_Project.View
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             AlbumController albumController = new AlbumController();
+            AlbumHandler albumHandler = new AlbumHandler();
 
             string albumPassedID = Request.QueryString["id"];
             int albumNumber = Convert.ToInt32(albumPassedID);
@@ -72,6 +73,13 @@ namespace KPopZtation_Project.View
                 lbErrorMessage.Text = errorMessage;
                 return;
             }
+
+            AlbumRepository albumRepository = new AlbumRepository();
+
+            int numberArtistID = albumRepository.getArtistFromAlbum(albumNumber);
+            string artistID = numberArtistID.ToString();
+
+            Response.Redirect("ArtistDetail.aspx?id=" + artistID);
         }
     }
 }

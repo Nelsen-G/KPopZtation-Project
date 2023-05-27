@@ -10,7 +10,7 @@ namespace KPopZtation_Project.Repository
     public class CartRepository
     {
 
-        dbKPopEntities db = dbSingleton.getInstance();
+        DatabaseKPopEntities1 db = dbSingleton.getInstance();
 
         public Cart addCart(int customerID, int albumID, int quantity)
         {
@@ -35,9 +35,17 @@ namespace KPopZtation_Project.Repository
         public int GetAlbumQuantityInCart(int customerID, int albumID)
         {
             Cart cartItem = db.Carts.FirstOrDefault(c => c.CustomerID == customerID && c.AlbumID == albumID);
-            return cartItem.Qty;
-    
+
+            if (cartItem != null)
+            {
+                return cartItem.Qty;
+            }
+            else
+            {
+                return 0;
+            }
         }
+
 
         public List<AlbumCartItem> GetAlbumItemsByCustomer(int customerID)
         {

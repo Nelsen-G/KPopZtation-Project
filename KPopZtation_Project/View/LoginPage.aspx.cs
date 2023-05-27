@@ -12,7 +12,6 @@ namespace KPopZtation_Project.View
     public partial class LoginPage : System.Web.UI.Page
     {
         CustomerController customerController = new CustomerController();
-        CustomerRepository customerRepository = new CustomerRepository();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -44,9 +43,6 @@ namespace KPopZtation_Project.View
             {
                 lbErrorMessage.Text = errorMessage;
             }
-            
-            
-
         }
     }
 }

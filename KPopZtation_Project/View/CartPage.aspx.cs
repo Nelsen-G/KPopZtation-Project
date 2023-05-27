@@ -52,6 +52,11 @@ namespace KPopZtation_Project.View
             cartRepository.RemoveAlbumFromCart(customerID, albumID);
 
             BindCartItems();
+
+            if (cartRepository.GetAlbumQuantityInCart(customerID, albumID) == 0)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
         }
 
         protected void btnCheckout_Click(object sender, EventArgs e)

@@ -5,6 +5,20 @@
 <html>
 <head runat="server">
     <title></title>
+        <style>
+        .navbar {
+            background-color: #25b8f7;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        body {
+            margin-top: 50px;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -12,32 +26,38 @@
     <form id="form1" runat="server">
 
 
+        <div class="navbar">
+            <% if (Session["user"] == null)
+                { %>
+            <asp:Button ID="btnHome" runat="server" Text="Home" OnClick="btnHome_Click" />
+            <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+            <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
 
-          <% if (Session["user"] == null)
-              { %>
-        <asp:Button ID="btnHome" runat="server" Text="Home" OnClick="btnHome_Click"/>
-        <asp:Button ID="btnLogin" runat="server" Text="Login"  OnClick="btnLogin_Click" />
-        <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click"/>
+            <asp:Button ID="btnAdmin" runat="server" Text="ADMIN" OnClick="btnAdmin_Click" />
 
-        <asp:Button ID="btnAdmin" runat="server" Text="ADMIN" OnClick="btnAdmin_Click"/>
-    
 
-        <%} else if (Session["user"].ToString() == "Customer") {%>
+            <%}
+                else if (Session["user"].ToString() == "Customer")
+                {%>
 
-        <asp:Button ID="btnHome2" runat="server" Text="Home" OnClick="btnHome_Click"/>
-        <asp:Button ID="btnCart" runat="server" Text="Cart" OnClick="btnCart_Click"/>
-        <asp:Button ID="btnTransactions" runat="server" Text="Transactions" OnClick="btnTransactions_Click"/>
-        <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" OnClick="btnUpdateProfile_Click"/>
-        <asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click"/>
+            <asp:Button ID="btnHome2" runat="server" Text="Home" OnClick="btnHome_Click" />
+            <asp:Button ID="btnCart" runat="server" Text="Cart" OnClick="btnCart_Click" />
+            <asp:Button ID="btnTransactions" runat="server" Text="Transactions" OnClick="btnTransactions_Click" />
+            <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" OnClick="btnUpdateProfile_Click" />
+            <asp:Button ID="btnLogOut" runat="server" Text="Log Out" OnClick="btnLogOut_Click" />
 
-        <%} else if (Session["user"].ToString() == "Admin") {%>
-          
-        <asp:Button ID="btnHome3" runat="server" Text="Home" OnClick="btnHome_Click"/>
-        <asp:Button ID="btnTransactionReport" runat="server" Text="Transaction Report" OnClick="btnTransactionReport_Click"/>
-        <asp:Button ID="btnUpdateProfile2" runat="server" Text="Update Profile" OnClick="btnUpdateProfile_Click"/>
-        <asp:Button ID="btnLogOut2" runat="server" Text="Log Out" OnClick="btnLogOut_Click"/>
+            <%}
+                else if (Session["user"].ToString() == "Admin")
+                {%>
 
-        <% } %>
+            <asp:Button ID="btnHome3" runat="server" Text="Home" OnClick="btnHome_Click" />
+            <asp:Button ID="btnTransaction" runat="server" Text="Transaction Report" OnClick="btnTransactionReport_Click" />
+            <asp:Button ID="btnUpdateProfile2" runat="server" Text="Update Profile" OnClick="btnUpdateProfile_Click" />
+            <asp:Button ID="btnLogOut2" runat="server" Text="Log Out" OnClick="btnLogOut_Click" />
+
+            <% } %>
+        </div>
+
 
 
         <div>

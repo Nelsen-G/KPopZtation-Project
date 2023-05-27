@@ -5,6 +5,10 @@
 
     <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %> 
 
+    <div>
+        <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="btnBack_Click"  />
+    </div>
+
     <h1>Insert Artist</h1>
 
     <div>

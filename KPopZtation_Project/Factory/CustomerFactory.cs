@@ -17,7 +17,8 @@ namespace KPopZtation_Project.Factory
             newCustomer.CustomerPassword = password;
             newCustomer.CustomerGender = gender;
             newCustomer.CustomerAddress = address;
-            
+            newCustomer.CustomerRole = "cust";
+
             return newCustomer;
         }
     }

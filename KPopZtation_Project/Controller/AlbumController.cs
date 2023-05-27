@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI.WebControls;
 using System.IO;
 using KPopZtation_Project.Repository;
+using KPopZtation_Project.Model;
 
 namespace KPopZtation_Project.Controller
 {
@@ -13,11 +14,10 @@ namespace KPopZtation_Project.Controller
     {
 
         private AlbumHandler albumHandler;
-    
+
         public AlbumController()
         {
             albumHandler = new AlbumHandler();
-           
         }
 
         public void validateUpdateAlbum(int id, string name, string description, string priceText, string stockText, FileUpload fileUploadImage, out string errorMessage)
@@ -102,6 +102,8 @@ namespace KPopZtation_Project.Controller
             {
                 fileName = albumHandler.getFileName(id); // kalo gak diupdate, dia bakal pake file name sebelumnya
             }
+
+
 
             albumHandler.HandleUpdate(id, name, description, price, stock, fileName);
         }
@@ -222,6 +224,12 @@ namespace KPopZtation_Project.Controller
 
             int stock = albumRepository.GetAlbumStock(albumID);
 
+            if (stock == 0)
+            {
+                errorMessage = "The album is out of stock.";
+                return;
+            }
+
             if (qty > stock)
             {
                 errorMessage = "Quantity cannot exceed the stock album.";
@@ -229,8 +237,7 @@ namespace KPopZtation_Project.Controller
             }
 
             cartHandler.HandleInsertion(customerID, albumID, qty);
-
-
         }
+
     }
 }
