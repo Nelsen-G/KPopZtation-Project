@@ -18,16 +18,27 @@ namespace KPopZtation_Project.View
 
             if (!IsPostBack)
             {
-                int customerID = customerRepository.GetCustomerID(HttpContext.Current);
+                string userRole = HttpContext.Current.Session["user"]?.ToString();
 
-                Customer c = customerRepository.selectCustomer(customerID);
+                if (userRole == "Admin")
+                {
+                    tbName.Text = string.Empty;
+                    tbEmail.Text = string.Empty;
+                    rbGender.ClearSelection();
+                    tbAddress.Text = string.Empty;
+                    tbPassword.Text = string.Empty;
+                }
+                else
+                {
+                    int customerID = customerRepository.GetCustomerID(HttpContext.Current);
+                    Customer c = customerRepository.selectCustomer(customerID);
 
-                tbName.Text = c.CustomerName;
-                tbEmail.Text = c.CustomerEmail;
-                rbGender.SelectedValue = c.CustomerGender;
-                tbAddress.Text = c.CustomerAddress;
-                tbPassword.Text = c.CustomerPassword;
-
+                    tbName.Text = c.CustomerName;
+                    tbEmail.Text = c.CustomerEmail;
+                    rbGender.SelectedValue = c.CustomerGender;
+                    tbAddress.Text = c.CustomerAddress;
+                    tbPassword.Text = c.CustomerPassword;
+                }
             }
 
 

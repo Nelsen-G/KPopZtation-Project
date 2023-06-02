@@ -15,7 +15,7 @@ namespace KPopZtation_Project.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TransactionCrystalReport report = new TransactionCrystalReport();
+            KPopZtationReport report = new KPopZtationReport();
 
             CrystalReportViewer1.ReportSource = report;
             DataSetKPop data = getData(TransactionHandler.GetTransactions(), AlbumHandler.GetAlbums());
@@ -29,18 +29,18 @@ namespace KPopZtation_Project.View
 
             var headertable = data.TransactionHeader;
             var detailtable = data.TransactionDetail;
-            var albumtable = data.Album;
+            var counttable = data.Counting;
 
-            decimal grandTotal = 0; // Variable to store the grand total
 
             foreach (TransactionHeader t in transactions)
             {
-                decimal subTotal = 0; // Variable to store the sub total for each transaction
 
                 var hrow = headertable.NewRow();
                 hrow["TransactionID"] = t.TransactionID;
                 hrow["TransactionDate"] = t.TransactionDate;
                 hrow["CustomerID"] = t.CustomerID;
+                //hrow["GrandTotal"] = t.GrandTotal;
+
 
                 headertable.Rows.Add(hrow);
 
@@ -50,31 +50,14 @@ namespace KPopZtation_Project.View
                     drow["TransactionID"] = d.TransactionID;
                     drow["AlbumID"] = d.AlbumID;
                     drow["Qty"] = d.Qty;
+                    drow["AlbumStock"] = d.AlbumStock;
+                    drow["AlbumPrice"] = d.AlbumPrice;
+                   // drow["Subtotal"] = d.Subtotal;
 
                     detailtable.Rows.Add(drow);
-
-                    // Calculate the subtotal for each transaction detail
-                    Album album = albums.FirstOrDefault(a => a.AlbumID == d.AlbumID);
-                    if (album != null)
-                    {
-                        decimal albumPrice = album.AlbumPrice;
-                        decimal quantity = d.Qty;
-                        decimal subtotal = albumPrice * quantity;
-                        subTotal += subtotal;
-                    }
                 }
-
-                // Update the sub total value for the transaction header
-                hrow["SubTotal"] = subTotal;
-
-                grandTotal += subTotal; // Add the sub total to the grand total
             }
-
-            // Set the grand total value for the dataset
-            data.Tables["GrandTotal"].Rows.Add(grandTotal);
-
             return data;
         }
-
     }
 }

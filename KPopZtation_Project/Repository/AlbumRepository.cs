@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 
 namespace KPopZtation_Project.Repository
 {
@@ -36,7 +37,7 @@ namespace KPopZtation_Project.Repository
 
             if (album != null)
             {
-               
+
                 album.AlbumStock -= quantity;
 
                 albumRepository.updateAlbum(album.AlbumID, album.AlbumName, album.AlbumDescription, album.AlbumPrice, album.AlbumStock, album.AlbumImage);
@@ -74,38 +75,78 @@ namespace KPopZtation_Project.Repository
             return artistID;
         }
 
-        public Album createAlbum(int foreignArtistID, String name, String description, int price, int stock, String fileName)
+        public Album createAlbum(int foreignArtistID, string name, string description, int price, int stock, string fileName)
         {
             AlbumFactory abF = new AlbumFactory();
+            DatabaseKPopEntities1 db = new DatabaseKPopEntities1();
 
-            Album newAlbum = abF.addAlbum(foreignArtistID, name, description, price, stock, fileName);
+            if (HttpContext.Current.Request.Files.Count > 0)
+            {
+                var fileUploadImage = HttpContext.Current.Request.Files[0];
 
-            db.Albums.Add(newAlbum);
-            db.SaveChanges();
+                if (fileUploadImage.ContentLength > 0)
+                {
+                    string imageName = fileUploadImage.FileName;
+                    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(imageName);
+                    string filePath = HttpContext.Current.Server.MapPath("~/Assets/Albums/") + uniqueFileName;
 
-            return newAlbum;
+                    fileUploadImage.SaveAs(filePath);
 
+                    Album newAlbum = abF.addAlbum(foreignArtistID, name, description, price, stock, uniqueFileName);
 
+                    db.Albums.Add(newAlbum);
+                    db.SaveChanges();
+
+                    return newAlbum;
+                }
+            }
+
+            // Handle case when no file is uploaded
+            return null;
         }
+
+
+        private string GetApplicationBaseDirectory()
+        {
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+            if (baseDirectory.Contains("bin"))
+                baseDirectory = baseDirectory.Substring(0, baseDirectory.LastIndexOf("bin"));
+
+            return baseDirectory;
+        }
+
+
 
         public Album updateAlbum(int id, string name, string description, int price, int stock, string fileName)
         {
-            Album updateAbm = new Album();
-            updateAbm = db.Albums.Find(id);
+            Album updateAbm = db.Albums.Find(id);
 
             updateAbm.AlbumName = name;
             updateAbm.AlbumDescription = description;
             updateAbm.AlbumPrice = price;
             updateAbm.AlbumStock = stock;
-            updateAbm.AlbumImage = fileName;
 
+            if (HttpContext.Current.Request.Files.Count > 0)
+            {
+                var fileUploadImage = HttpContext.Current.Request.Files[0];
+
+                if (fileUploadImage.ContentLength > 0)
+                {
+                    string imageName = fileUploadImage.FileName;
+                    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(imageName);
+                    string filePath = HttpContext.Current.Server.MapPath("~/Assets/Albums/") + uniqueFileName;
+
+                    fileUploadImage.SaveAs(filePath);
+
+                    updateAbm.AlbumImage = uniqueFileName;
+                }
+            }
 
             db.SaveChanges();
 
             return updateAbm;
-
         }
-
 
         public Album deleteAlbum(int id)
         {

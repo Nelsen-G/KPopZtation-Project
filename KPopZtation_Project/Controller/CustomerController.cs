@@ -198,64 +198,6 @@ namespace KPopZtation_Project.Controller
 
         }
 
-        public bool Login(string email, string password, bool rememberMe, out string errorMessage)
-        {
-
-            bool loginSuccess = customerHandler.CheckLogin(email, password);
-
-            errorMessage = string.Empty;
-
-
-            //Sistem Validasi empty dan invalid
-            if (string.IsNullOrEmpty(email))
-            {
-                errorMessage = "Email must be filled";
-            }
-
-            if (string.IsNullOrEmpty(password))
-            {
-                errorMessage = "Password must be filled";
-            }
-
-            if (!loginSuccess)
-            {
-                errorMessage = "Invalid email or password";
-            }
-
-
-            //Sistem simpan cookies
-            if (loginSuccess)
-            {
-                if (rememberMe) // Checkbox is checked
-                {
-                    // Create or update the login cookie
-                    HttpCookie loginCookie = new HttpCookie("LoggedInUser");
-                    loginCookie.Values["Email"] = email;
-                    loginCookie.Values["Password"] = password;
-                    loginCookie.Expires = DateTime.Now.AddDays(1);
-                    HttpContext.Current.Response.Cookies.Add(loginCookie);
-                }
-                else // Checkbox is unchecked
-                {
-                    // Remove login cookie
-                    if (HttpContext.Current.Request.Cookies["LoggedInUser"] != null)
-                    {
-                        HttpCookie loginCookie = new HttpCookie("LoggedInUser");
-                        loginCookie.Expires = DateTime.Now.AddDays(-1);
-                        HttpContext.Current.Response.Cookies.Add(loginCookie);
-                    }
-                }
-
-                HttpContext.Current.Session["user"] = "Customer";
-                HttpContext.Current.Session["username"] = customerHandler.GetUserName(email);
-                HttpContext.Current.Session["customerID"] = customerHandler.GetUserID(email);
-
-                HttpContext.Current.Response.Redirect("HomePage.aspx");
-            }
-
-            return loginSuccess;
-
-        }
 
     }
 }

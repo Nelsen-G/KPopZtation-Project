@@ -49,6 +49,11 @@ namespace KPopZtation_Project.Repository
             return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerName;
         }
 
+        public string GetRoleByEmail(string email)
+        {
+            return db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerRole;
+        }
+
         public string GetUserIDByEmail(string email)
         {
             int? customerID = db.Customers.FirstOrDefault(c => c.CustomerEmail == email)?.CustomerID;
@@ -66,6 +71,7 @@ namespace KPopZtation_Project.Repository
         public int GetCustomerID(HttpContext context)
         {
             return int.Parse(context.Session["customerID"].ToString());
+
         }
 
 

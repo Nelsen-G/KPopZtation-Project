@@ -1315,10 +1315,10 @@
     <Compile Include="Model\TransactionHeader.cs">
       <DependentUpon>dbKPopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Report\TransactionCrystalReport.cs">
+    <Compile Include="Report\KPopZtationReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TransactionCrystalReport.rpt</DependentUpon>
+      <DependentUpon>KPopZtationReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Repository\AlbumRepository.cs" />
@@ -1459,10 +1459,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Report\TransactionCrystalReport.rpt">
+    <EmbeddedResource Include="Report\KPopZtationReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>TransactionCrystalReport.cs</LastGenOutput>
+      <LastGenOutput>KPopZtationReport.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

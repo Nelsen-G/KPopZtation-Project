@@ -18,8 +18,11 @@ namespace KPopZtation_Project.Model
         public int TransactionID { get; set; }
         public int AlbumID { get; set; }
         public int Qty { get; set; }
-    
+        public int AlbumPrice { get; set; }
+        public int Subtotal { get; set; }
+
         public virtual Album Album { get; set; }
         public virtual TransactionHeader TransactionHeader { get; set; }
+        public object AlbumStock { get; internal set; }
     }
 }

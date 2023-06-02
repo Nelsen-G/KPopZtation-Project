@@ -33,9 +33,6 @@
             <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
             <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
 
-            <asp:Button ID="btnAdmin" runat="server" Text="ADMIN" OnClick="btnAdmin_Click" />
-
-
             <%}
                 else if (Session["user"].ToString() == "Customer")
                 {%>

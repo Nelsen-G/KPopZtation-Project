@@ -1,4 +1,5 @@
 ﻿using KPopZtation_Project.Controller;
+using KPopZtation_Project.Handler;
 using KPopZtation_Project.Repository;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace KPopZtation_Project.View
 {
     public partial class LoginPage : System.Web.UI.Page
     {
-        CustomerController customerController = new CustomerController();
+        CustomerHandler customerHandler= new CustomerHandler();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -37,7 +38,7 @@ namespace KPopZtation_Project.View
             bool rememberMe = cbRemember.Checked;
 
             string errorMessage;
-            bool loginSuccess = customerController.Login(email, password, rememberMe, out errorMessage);
+            bool loginSuccess = customerHandler.Login(email, password, rememberMe, out errorMessage);
 
             if (!loginSuccess)
             {

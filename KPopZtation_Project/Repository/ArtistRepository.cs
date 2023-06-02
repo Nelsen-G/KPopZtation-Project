@@ -2,6 +2,7 @@
 using KPopZtation_Project.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -17,17 +18,33 @@ namespace KPopZtation_Project.Repository
             return !db.Artists.Any(a => a.ArtistName == name);
         }
 
-        public Artist createArtist(String name, String fileName)
+        public Artist createArtist(string name, string fileName)
         {
             ArtistFactory af = new ArtistFactory();
 
-            Artist newArtist = af.addArtist(name, fileName);
+            if (HttpContext.Current.Request.Files.Count > 0)
+            {
+                var fileUploadImage = HttpContext.Current.Request.Files[0];
 
-            db.Artists.Add(newArtist);
-            db.SaveChanges();
+                if (fileUploadImage.ContentLength > 0)
+                {
+                    string imageName = fileUploadImage.FileName;
+                    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(imageName);
+                    string filePath = HttpContext.Current.Server.MapPath("~/Assets/Artists/") + uniqueFileName;
 
-            return newArtist;
+                    fileUploadImage.SaveAs(filePath);
+
+                    Artist newArtist = af.addArtist(name, uniqueFileName);
+
+                    db.Artists.Add(newArtist);
+                    db.SaveChanges();
+
+                    return newArtist;
+                }
+            }
+            return null;
         }
+
 
         public Artist selectArtist(int artistNumber)
         {
@@ -37,16 +54,31 @@ namespace KPopZtation_Project.Repository
 
         public Artist updateArtist(int id, string name, string fileName)
         {
-            Artist updateA = new Artist();
-            updateA = db.Artists.Find(id);
+            Artist updateA = db.Artists.Find(id);
+
+            if (HttpContext.Current.Request.Files.Count > 0)
+            {
+                var fileUploadImage = HttpContext.Current.Request.Files[0];
+
+                if (fileUploadImage.ContentLength > 0)
+                {
+                    string imageName = fileUploadImage.FileName;
+                    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(imageName);
+                    string filePath = HttpContext.Current.Server.MapPath("~/Assets/Artists/") + uniqueFileName;
+
+                    fileUploadImage.SaveAs(filePath);
+
+                    updateA.ArtistImage = uniqueFileName;
+                }
+            }
 
             updateA.ArtistName = name;
-            updateA.ArtistImage = fileName;
 
             db.SaveChanges();
 
             return updateA;
         }
+
 
         public Artist deleteArtist(int id)
         {

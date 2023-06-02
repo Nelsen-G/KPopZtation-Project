@@ -36,7 +36,7 @@ namespace KPopZtation_Project.View
                 return;
             }
 
-            Response.Redirect("HomePage.aspx");
+            Response.Redirect("LoginPage.aspx");
         }
     }
 }

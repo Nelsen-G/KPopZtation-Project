@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\KPopZtation_Project",
+    "\\KPopZtation_Project\\View"
   ],
-  "SelectedNode": "\\KPopZtation_Project.sln",
+  "SelectedNode": "\\KPopZtation_Project\\View\\LoginPage.aspx",
   "PreviewInSolutionExplorer": false
 }

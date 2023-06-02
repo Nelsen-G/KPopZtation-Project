@@ -28,11 +28,9 @@ namespace KPopZtation_Project.Dataset {
         
         private TransactionDetailDataTable tableTransactionDetail;
         
-        private AlbumDataTable tableAlbum;
+        private CountingDataTable tableCounting;
         
         private global::System.Data.DataRelation relationTransactionHeader_TransactionDetail;
-        
-        private global::System.Data.DataRelation relationAlbum_TransactionDetail;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -68,8 +66,8 @@ namespace KPopZtation_Project.Dataset {
                 if ((ds.Tables["TransactionDetail"] != null)) {
                     base.Tables.Add(new TransactionDetailDataTable(ds.Tables["TransactionDetail"]));
                 }
-                if ((ds.Tables["Album"] != null)) {
-                    base.Tables.Add(new AlbumDataTable(ds.Tables["Album"]));
+                if ((ds.Tables["Counting"] != null)) {
+                    base.Tables.Add(new CountingDataTable(ds.Tables["Counting"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -113,9 +111,9 @@ namespace KPopZtation_Project.Dataset {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public AlbumDataTable Album {
+        public CountingDataTable Counting {
             get {
-                return this.tableAlbum;
+                return this.tableCounting;
             }
         }
         
@@ -192,8 +190,8 @@ namespace KPopZtation_Project.Dataset {
                 if ((ds.Tables["TransactionDetail"] != null)) {
                     base.Tables.Add(new TransactionDetailDataTable(ds.Tables["TransactionDetail"]));
                 }
-                if ((ds.Tables["Album"] != null)) {
-                    base.Tables.Add(new AlbumDataTable(ds.Tables["Album"]));
+                if ((ds.Tables["Counting"] != null)) {
+                    base.Tables.Add(new CountingDataTable(ds.Tables["Counting"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -240,14 +238,13 @@ namespace KPopZtation_Project.Dataset {
                     this.tableTransactionDetail.InitVars();
                 }
             }
-            this.tableAlbum = ((AlbumDataTable)(base.Tables["Album"]));
+            this.tableCounting = ((CountingDataTable)(base.Tables["Counting"]));
             if ((initTable == true)) {
-                if ((this.tableAlbum != null)) {
-                    this.tableAlbum.InitVars();
+                if ((this.tableCounting != null)) {
+                    this.tableCounting.InitVars();
                 }
             }
             this.relationTransactionHeader_TransactionDetail = this.Relations["TransactionHeader_TransactionDetail"];
-            this.relationAlbum_TransactionDetail = this.Relations["Album_TransactionDetail"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -262,16 +259,12 @@ namespace KPopZtation_Project.Dataset {
             base.Tables.Add(this.tableTransactionHeader);
             this.tableTransactionDetail = new TransactionDetailDataTable();
             base.Tables.Add(this.tableTransactionDetail);
-            this.tableAlbum = new AlbumDataTable();
-            base.Tables.Add(this.tableAlbum);
+            this.tableCounting = new CountingDataTable();
+            base.Tables.Add(this.tableCounting);
             this.relationTransactionHeader_TransactionDetail = new global::System.Data.DataRelation("TransactionHeader_TransactionDetail", new global::System.Data.DataColumn[] {
                         this.tableTransactionHeader.TransactionIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTransactionDetail.TransactionIDColumn}, false);
             this.Relations.Add(this.relationTransactionHeader_TransactionDetail);
-            this.relationAlbum_TransactionDetail = new global::System.Data.DataRelation("Album_TransactionDetail", new global::System.Data.DataColumn[] {
-                        this.tableAlbum.AlbumIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTransactionDetail.AlbumIDColumn}, false);
-            this.Relations.Add(this.relationAlbum_TransactionDetail);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -288,7 +281,7 @@ namespace KPopZtation_Project.Dataset {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeAlbum() {
+        private bool ShouldSerializeCounting() {
             return false;
         }
         
@@ -354,7 +347,7 @@ namespace KPopZtation_Project.Dataset {
         public delegate void TransactionDetailRowChangeEventHandler(object sender, TransactionDetailRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void AlbumRowChangeEventHandler(object sender, AlbumRowChangeEvent e);
+        public delegate void CountingRowChangeEventHandler(object sender, CountingRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -644,6 +637,10 @@ namespace KPopZtation_Project.Dataset {
             
             private global::System.Data.DataColumn columnQty;
             
+            private global::System.Data.DataColumn columnAlbumStock;
+            
+            private global::System.Data.DataColumn columnAlbumPrice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TransactionDetailDataTable() {
@@ -703,6 +700,22 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AlbumStockColumn {
+                get {
+                    return this.columnAlbumStock;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AlbumPriceColumn {
+                get {
+                    return this.columnAlbumPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -738,17 +751,16 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TransactionDetailRow AddTransactionDetailRow(TransactionHeaderRow parentTransactionHeaderRowByTransactionHeader_TransactionDetail, AlbumRow parentAlbumRowByAlbum_TransactionDetail, string Qty) {
+            public TransactionDetailRow AddTransactionDetailRow(TransactionHeaderRow parentTransactionHeaderRowByTransactionHeader_TransactionDetail, string AlbumID, string Qty, string AlbumStock, string AlbumPrice) {
                 TransactionDetailRow rowTransactionDetailRow = ((TransactionDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        null,
-                        Qty};
+                        AlbumID,
+                        Qty,
+                        AlbumStock,
+                        AlbumPrice};
                 if ((parentTransactionHeaderRowByTransactionHeader_TransactionDetail != null)) {
                     columnValuesArray[0] = parentTransactionHeaderRowByTransactionHeader_TransactionDetail[0];
-                }
-                if ((parentAlbumRowByAlbum_TransactionDetail != null)) {
-                    columnValuesArray[1] = parentAlbumRowByAlbum_TransactionDetail[0];
                 }
                 rowTransactionDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTransactionDetailRow);
@@ -775,6 +787,8 @@ namespace KPopZtation_Project.Dataset {
                 this.columnTransactionID = base.Columns["TransactionID"];
                 this.columnAlbumID = base.Columns["AlbumID"];
                 this.columnQty = base.Columns["Qty"];
+                this.columnAlbumStock = base.Columns["AlbumStock"];
+                this.columnAlbumPrice = base.Columns["AlbumPrice"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -786,6 +800,10 @@ namespace KPopZtation_Project.Dataset {
                 base.Columns.Add(this.columnAlbumID);
                 this.columnQty = new global::System.Data.DataColumn("Qty", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQty);
+                this.columnAlbumStock = new global::System.Data.DataColumn("AlbumStock", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAlbumStock);
+                this.columnAlbumPrice = new global::System.Data.DataColumn("AlbumPrice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAlbumPrice);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -917,18 +935,16 @@ namespace KPopZtation_Project.Dataset {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class AlbumDataTable : global::System.Data.TypedTableBase<AlbumRow> {
+        public partial class CountingDataTable : global::System.Data.TypedTableBase<CountingRow> {
             
-            private global::System.Data.DataColumn columnAlbumID;
+            private global::System.Data.DataColumn columnGrandTotal;
             
-            private global::System.Data.DataColumn columnAlbumStock;
-            
-            private global::System.Data.DataColumn columnAlbumPrice;
+            private global::System.Data.DataColumn columnSubtotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AlbumDataTable() {
-                this.TableName = "Album";
+            public CountingDataTable() {
+                this.TableName = "Counting";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -936,7 +952,7 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal AlbumDataTable(global::System.Data.DataTable table) {
+            internal CountingDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -953,32 +969,24 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected AlbumDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CountingDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AlbumIDColumn {
+            public global::System.Data.DataColumn GrandTotalColumn {
                 get {
-                    return this.columnAlbumID;
+                    return this.columnGrandTotal;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AlbumStockColumn {
+            public global::System.Data.DataColumn SubtotalColumn {
                 get {
-                    return this.columnAlbumStock;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AlbumPriceColumn {
-                get {
-                    return this.columnAlbumPrice;
+                    return this.columnSubtotal;
                 }
             }
             
@@ -993,47 +1001,46 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AlbumRow this[int index] {
+            public CountingRow this[int index] {
                 get {
-                    return ((AlbumRow)(this.Rows[index]));
+                    return ((CountingRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AlbumRowChangeEventHandler AlbumRowChanging;
+            public event CountingRowChangeEventHandler CountingRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AlbumRowChangeEventHandler AlbumRowChanged;
+            public event CountingRowChangeEventHandler CountingRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AlbumRowChangeEventHandler AlbumRowDeleting;
+            public event CountingRowChangeEventHandler CountingRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event AlbumRowChangeEventHandler AlbumRowDeleted;
+            public event CountingRowChangeEventHandler CountingRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddAlbumRow(AlbumRow row) {
+            public void AddCountingRow(CountingRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AlbumRow AddAlbumRow(string AlbumID, string AlbumStock, string AlbumPrice) {
-                AlbumRow rowAlbumRow = ((AlbumRow)(this.NewRow()));
+            public CountingRow AddCountingRow(string GrandTotal, string Subtotal) {
+                CountingRow rowCountingRow = ((CountingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        AlbumID,
-                        AlbumStock,
-                        AlbumPrice};
-                rowAlbumRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowAlbumRow);
-                return rowAlbumRow;
+                        GrandTotal,
+                        Subtotal};
+                rowCountingRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCountingRow);
+                return rowCountingRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                AlbumDataTable cln = ((AlbumDataTable)(base.Clone()));
+                CountingDataTable cln = ((CountingDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1041,52 +1048,49 @@ namespace KPopZtation_Project.Dataset {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new AlbumDataTable();
+                return new CountingDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnAlbumID = base.Columns["AlbumID"];
-                this.columnAlbumStock = base.Columns["AlbumStock"];
-                this.columnAlbumPrice = base.Columns["AlbumPrice"];
+                this.columnGrandTotal = base.Columns["GrandTotal"];
+                this.columnSubtotal = base.Columns["Subtotal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnAlbumID = new global::System.Data.DataColumn("AlbumID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAlbumID);
-                this.columnAlbumStock = new global::System.Data.DataColumn("AlbumStock", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAlbumStock);
-                this.columnAlbumPrice = new global::System.Data.DataColumn("AlbumPrice", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAlbumPrice);
+                this.columnGrandTotal = new global::System.Data.DataColumn("GrandTotal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrandTotal);
+                this.columnSubtotal = new global::System.Data.DataColumn("Subtotal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubtotal);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AlbumRow NewAlbumRow() {
-                return ((AlbumRow)(this.NewRow()));
+            public CountingRow NewCountingRow() {
+                return ((CountingRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new AlbumRow(builder);
+                return new CountingRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(AlbumRow);
+                return typeof(CountingRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.AlbumRowChanged != null)) {
-                    this.AlbumRowChanged(this, new AlbumRowChangeEvent(((AlbumRow)(e.Row)), e.Action));
+                if ((this.CountingRowChanged != null)) {
+                    this.CountingRowChanged(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1094,8 +1098,8 @@ namespace KPopZtation_Project.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.AlbumRowChanging != null)) {
-                    this.AlbumRowChanging(this, new AlbumRowChangeEvent(((AlbumRow)(e.Row)), e.Action));
+                if ((this.CountingRowChanging != null)) {
+                    this.CountingRowChanging(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1103,8 +1107,8 @@ namespace KPopZtation_Project.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.AlbumRowDeleted != null)) {
-                    this.AlbumRowDeleted(this, new AlbumRowChangeEvent(((AlbumRow)(e.Row)), e.Action));
+                if ((this.CountingRowDeleted != null)) {
+                    this.CountingRowDeleted(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1112,14 +1116,14 @@ namespace KPopZtation_Project.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.AlbumRowDeleting != null)) {
-                    this.AlbumRowDeleting(this, new AlbumRowChangeEvent(((AlbumRow)(e.Row)), e.Action));
+                if ((this.CountingRowDeleting != null)) {
+                    this.CountingRowDeleting(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveAlbumRow(AlbumRow row) {
+            public void RemoveCountingRow(CountingRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1146,7 +1150,7 @@ namespace KPopZtation_Project.Dataset {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "AlbumDataTable";
+                attribute2.FixedValue = "CountingDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1361,23 +1365,44 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AlbumStock {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransactionDetail.AlbumStockColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AlbumStock\' in table \'TransactionDetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransactionDetail.AlbumStockColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AlbumPrice {
+                get {
+                    try {
+                        return ((string)(this[this.tableTransactionDetail.AlbumPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AlbumPrice\' in table \'TransactionDetail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransactionDetail.AlbumPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TransactionHeaderRow TransactionHeaderRow {
                 get {
                     return ((TransactionHeaderRow)(this.GetParentRow(this.Table.ParentRelations["TransactionHeader_TransactionDetail"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["TransactionHeader_TransactionDetail"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AlbumRow AlbumRow {
-                get {
-                    return ((AlbumRow)(this.GetParentRow(this.Table.ParentRelations["Album_TransactionDetail"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Album_TransactionDetail"]);
                 }
             }
             
@@ -1416,115 +1441,100 @@ namespace KPopZtation_Project.Dataset {
             public void SetQtyNull() {
                 this[this.tableTransactionDetail.QtyColumn] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class AlbumRow : global::System.Data.DataRow {
-            
-            private AlbumDataTable tableAlbum;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal AlbumRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableAlbum = ((AlbumDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string AlbumID {
-                get {
-                    try {
-                        return ((string)(this[this.tableAlbum.AlbumIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AlbumID\' in table \'Album\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAlbum.AlbumIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string AlbumStock {
-                get {
-                    try {
-                        return ((string)(this[this.tableAlbum.AlbumStockColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AlbumStock\' in table \'Album\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAlbum.AlbumStockColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string AlbumPrice {
-                get {
-                    try {
-                        return ((string)(this[this.tableAlbum.AlbumPriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AlbumPrice\' in table \'Album\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableAlbum.AlbumPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAlbumIDNull() {
-                return this.IsNull(this.tableAlbum.AlbumIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAlbumIDNull() {
-                this[this.tableAlbum.AlbumIDColumn] = global::System.Convert.DBNull;
-            }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAlbumStockNull() {
-                return this.IsNull(this.tableAlbum.AlbumStockColumn);
+                return this.IsNull(this.tableTransactionDetail.AlbumStockColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAlbumStockNull() {
-                this[this.tableAlbum.AlbumStockColumn] = global::System.Convert.DBNull;
+                this[this.tableTransactionDetail.AlbumStockColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAlbumPriceNull() {
-                return this.IsNull(this.tableAlbum.AlbumPriceColumn);
+                return this.IsNull(this.tableTransactionDetail.AlbumPriceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAlbumPriceNull() {
-                this[this.tableAlbum.AlbumPriceColumn] = global::System.Convert.DBNull;
+                this[this.tableTransactionDetail.AlbumPriceColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CountingRow : global::System.Data.DataRow {
+            
+            private CountingDataTable tableCounting;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal CountingRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCounting = ((CountingDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TransactionDetailRow[] GetTransactionDetailRows() {
-                if ((this.Table.ChildRelations["Album_TransactionDetail"] == null)) {
-                    return new TransactionDetailRow[0];
+            public string GrandTotal {
+                get {
+                    try {
+                        return ((string)(this[this.tableCounting.GrandTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotal\' in table \'Counting\' is DBNull.", e);
+                    }
                 }
-                else {
-                    return ((TransactionDetailRow[])(base.GetChildRows(this.Table.ChildRelations["Album_TransactionDetail"])));
+                set {
+                    this[this.tableCounting.GrandTotalColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Subtotal {
+                get {
+                    try {
+                        return ((string)(this[this.tableCounting.SubtotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Subtotal\' in table \'Counting\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCounting.SubtotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGrandTotalNull() {
+                return this.IsNull(this.tableCounting.GrandTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGrandTotalNull() {
+                this[this.tableCounting.GrandTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSubtotalNull() {
+                return this.IsNull(this.tableCounting.SubtotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSubtotalNull() {
+                this[this.tableCounting.SubtotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1600,22 +1610,22 @@ namespace KPopZtation_Project.Dataset {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class AlbumRowChangeEvent : global::System.EventArgs {
+        public class CountingRowChangeEvent : global::System.EventArgs {
             
-            private AlbumRow eventRow;
+            private CountingRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AlbumRowChangeEvent(AlbumRow row, global::System.Data.DataRowAction action) {
+            public CountingRowChangeEvent(CountingRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public AlbumRow Row {
+            public CountingRow Row {
                 get {
                     return this.eventRow;
                 }
