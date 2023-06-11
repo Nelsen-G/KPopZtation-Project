@@ -151,6 +151,17 @@ namespace KPopZtation_Project.Repository
         public Album deleteAlbum(int id)
         {
             Album abm = db.Albums.Find(id);
+
+            var cartAlbum = db.Carts.Where(c => c.AlbumID == id).ToList();
+
+            if (cartAlbum.Count > 0)
+            {
+                db.Carts.RemoveRange(cartAlbum);
+            }
+
+            var transactionDetails = db.TransactionDetails.Where(td => td.AlbumID == id).ToList();
+            db.TransactionDetails.RemoveRange(transactionDetails);
+
             db.Albums.Remove(abm);
             db.SaveChanges();
 

@@ -82,12 +82,24 @@ namespace KPopZtation_Project.Repository
 
         public Artist deleteArtist(int id)
         {
-            Artist a = db.Artists.Find(id);
-            db.Artists.Remove(a);
+            Artist artist = db.Artists.Find(id);
+
+            var artistAlbums = db.Albums.Where(a => a.ArtistID == id).ToList();
+
+            foreach (var album in artistAlbums)
+            {
+                var transactionDetails = db.TransactionDetails.Where(td => td.AlbumID == album.AlbumID).ToList();
+                db.TransactionDetails.RemoveRange(transactionDetails);
+
+                db.Albums.Remove(album);
+            }
+
+            db.Artists.Remove(artist);
             db.SaveChanges();
 
-            return a;
+            return artist;
         }
+
 
         public List<Artist> getAllArtists()
         {
