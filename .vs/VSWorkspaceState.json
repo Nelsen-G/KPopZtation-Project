@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\KPopZtation_Project"
+    "\\KPopZtation_Project",
+    "\\KPopZtation_Project\\Assets",
+    "\\KPopZtation_Project\\Assets\\Artists"
   ],
   "SelectedNode": "\\KPopZtation_Project.sln",
   "PreviewInSolutionExplorer": false
