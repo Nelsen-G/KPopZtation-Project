@@ -10,7 +10,7 @@ namespace KPopZtation_Project.Repository
     public class TransactionsRepository
     {
 
-        DatabaseKPopEntities1 db = dbSingleton.getInstance();
+        DatabaseKPopEntities2 db = dbSingleton.getInstance();
 
         public TransactionHeader AddTransactionHeader(int customerID, DateTime transactionDate)
         {
@@ -58,7 +58,7 @@ namespace KPopZtation_Project.Repository
 
         public static List<TransactionHeader> GetTransactionsFromRepo()
         {
-            DatabaseKPopEntities1 db = new DatabaseKPopEntities1();
+            DatabaseKPopEntities2 db = new DatabaseKPopEntities2();
             return db.TransactionHeaders.ToList();
         }
 

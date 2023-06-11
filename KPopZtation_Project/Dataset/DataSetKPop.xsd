@@ -25,18 +25,10 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TransactionID" msprop:Generator_ColumnVarNameInTable="columnTransactionID" msprop:Generator_ColumnPropNameInRow="TransactionID" msprop:Generator_ColumnPropNameInTable="TransactionIDColumn" msprop:Generator_UserColumnName="TransactionID" type="xs:string" minOccurs="0" />
-              <xs:element name="AlbumID" msprop:Generator_ColumnVarNameInTable="columnAlbumID" msprop:Generator_ColumnPropNameInRow="AlbumID" msprop:Generator_ColumnPropNameInTable="AlbumIDColumn" msprop:Generator_UserColumnName="AlbumID" type="xs:string" minOccurs="0" />
+              <xs:element name="AlbumName" msprop:Generator_ColumnVarNameInTable="columnAlbumName" msprop:Generator_ColumnPropNameInRow="AlbumName" msprop:Generator_ColumnPropNameInTable="AlbumNameColumn" msprop:Generator_UserColumnName="AlbumName" type="xs:string" minOccurs="0" />
               <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:string" minOccurs="0" />
               <xs:element name="AlbumStock" msprop:Generator_ColumnVarNameInTable="columnAlbumStock" msprop:Generator_ColumnPropNameInRow="AlbumStock" msprop:Generator_ColumnPropNameInTable="AlbumStockColumn" msprop:Generator_UserColumnName="AlbumStock" type="xs:string" minOccurs="0" />
               <xs:element name="AlbumPrice" msprop:Generator_ColumnVarNameInTable="columnAlbumPrice" msprop:Generator_ColumnPropNameInRow="AlbumPrice" msprop:Generator_ColumnPropNameInTable="AlbumPriceColumn" msprop:Generator_UserColumnName="AlbumPrice" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Counting" msprop:Generator_TableClassName="CountingDataTable" msprop:Generator_TableVarName="tableCounting" msprop:Generator_TablePropName="Counting" msprop:Generator_RowDeletingName="CountingRowDeleting" msprop:Generator_RowChangingName="CountingRowChanging" msprop:Generator_RowEvHandlerName="CountingRowChangeEventHandler" msprop:Generator_RowDeletedName="CountingRowDeleted" msprop:Generator_UserTableName="Counting" msprop:Generator_RowChangedName="CountingRowChanged" msprop:Generator_RowEvArgName="CountingRowChangeEvent" msprop:Generator_RowClassName="CountingRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="GrandTotal" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:string" minOccurs="0" />
-              <xs:element name="Subtotal" msprop:Generator_ColumnVarNameInTable="columnSubtotal" msprop:Generator_ColumnPropNameInRow="Subtotal" msprop:Generator_ColumnPropNameInTable="SubtotalColumn" msprop:Generator_UserColumnName="Subtotal" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -45,7 +37,7 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="TransactionHeader_TransactionDetail" msdata:parent="TransactionHeader" msdata:child="TransactionDetail" msdata:parentkey="TransactionID" msdata:childkey="TransactionID" msprop:Generator_UserChildTable="TransactionDetail" msprop:Generator_ChildPropName="GetTransactionDetailRows" msprop:Generator_UserRelationName="TransactionHeader_TransactionDetail" msprop:Generator_ParentPropName="TransactionHeaderRow" msprop:Generator_RelationVarName="relationTransactionHeader_TransactionDetail" msprop:Generator_UserParentTable="TransactionHeader" />
+      <msdata:Relationship name="TransactionHeader_TransactionDetail" msdata:parent="TransactionHeader" msdata:child="TransactionDetail" msdata:parentkey="TransactionID" msdata:childkey="TransactionID" msprop:Generator_UserChildTable="TransactionDetail" msprop:Generator_ChildPropName="GetTransactionDetailRows" msprop:Generator_UserRelationName="TransactionHeader_TransactionDetail" msprop:Generator_RelationVarName="relationTransactionHeader_TransactionDetail" msprop:Generator_UserParentTable="TransactionHeader" msprop:Generator_ParentPropName="TransactionHeaderRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

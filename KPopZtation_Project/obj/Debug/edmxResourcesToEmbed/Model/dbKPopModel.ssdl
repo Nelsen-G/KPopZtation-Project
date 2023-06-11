@@ -55,7 +55,7 @@
       <PropertyRef Name="TransactionID" />
     </Key>
     <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TransactionDate" Type="date" Nullable="false" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="false" />
     <Property Name="CustomerID" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Album_Artist">

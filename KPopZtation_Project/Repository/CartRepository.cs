@@ -10,7 +10,7 @@ namespace KPopZtation_Project.Repository
     public class CartRepository
     {
 
-        DatabaseKPopEntities1 db = dbSingleton.getInstance();
+        DatabaseKPopEntities2 db = dbSingleton.getInstance();
 
         public Cart addCart(int customerID, int albumID, int quantity)
         {

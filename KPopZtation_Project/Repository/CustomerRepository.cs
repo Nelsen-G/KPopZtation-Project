@@ -12,7 +12,7 @@ namespace KPopZtation_Project.Repository
     public class CustomerRepository
     {
 
-        DatabaseKPopEntities1 db = dbSingleton.getInstance();
+        DatabaseKPopEntities2 db = dbSingleton.getInstance();
 
         public Customer createCustomer(String name, String email, String password, String gender, String address)
         {

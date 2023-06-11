@@ -28,8 +28,6 @@ namespace KPopZtation_Project.Dataset {
         
         private TransactionDetailDataTable tableTransactionDetail;
         
-        private CountingDataTable tableCounting;
-        
         private global::System.Data.DataRelation relationTransactionHeader_TransactionDetail;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -66,9 +64,6 @@ namespace KPopZtation_Project.Dataset {
                 if ((ds.Tables["TransactionDetail"] != null)) {
                     base.Tables.Add(new TransactionDetailDataTable(ds.Tables["TransactionDetail"]));
                 }
-                if ((ds.Tables["Counting"] != null)) {
-                    base.Tables.Add(new CountingDataTable(ds.Tables["Counting"]));
-                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -104,16 +99,6 @@ namespace KPopZtation_Project.Dataset {
         public TransactionDetailDataTable TransactionDetail {
             get {
                 return this.tableTransactionDetail;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CountingDataTable Counting {
-            get {
-                return this.tableCounting;
             }
         }
         
@@ -190,9 +175,6 @@ namespace KPopZtation_Project.Dataset {
                 if ((ds.Tables["TransactionDetail"] != null)) {
                     base.Tables.Add(new TransactionDetailDataTable(ds.Tables["TransactionDetail"]));
                 }
-                if ((ds.Tables["Counting"] != null)) {
-                    base.Tables.Add(new CountingDataTable(ds.Tables["Counting"]));
-                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -238,12 +220,6 @@ namespace KPopZtation_Project.Dataset {
                     this.tableTransactionDetail.InitVars();
                 }
             }
-            this.tableCounting = ((CountingDataTable)(base.Tables["Counting"]));
-            if ((initTable == true)) {
-                if ((this.tableCounting != null)) {
-                    this.tableCounting.InitVars();
-                }
-            }
             this.relationTransactionHeader_TransactionDetail = this.Relations["TransactionHeader_TransactionDetail"];
         }
         
@@ -259,8 +235,6 @@ namespace KPopZtation_Project.Dataset {
             base.Tables.Add(this.tableTransactionHeader);
             this.tableTransactionDetail = new TransactionDetailDataTable();
             base.Tables.Add(this.tableTransactionDetail);
-            this.tableCounting = new CountingDataTable();
-            base.Tables.Add(this.tableCounting);
             this.relationTransactionHeader_TransactionDetail = new global::System.Data.DataRelation("TransactionHeader_TransactionDetail", new global::System.Data.DataColumn[] {
                         this.tableTransactionHeader.TransactionIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableTransactionDetail.TransactionIDColumn}, false);
@@ -276,12 +250,6 @@ namespace KPopZtation_Project.Dataset {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeTransactionDetail() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeCounting() {
             return false;
         }
         
@@ -345,9 +313,6 @@ namespace KPopZtation_Project.Dataset {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void TransactionDetailRowChangeEventHandler(object sender, TransactionDetailRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void CountingRowChangeEventHandler(object sender, CountingRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -633,7 +598,7 @@ namespace KPopZtation_Project.Dataset {
             
             private global::System.Data.DataColumn columnTransactionID;
             
-            private global::System.Data.DataColumn columnAlbumID;
+            private global::System.Data.DataColumn columnAlbumName;
             
             private global::System.Data.DataColumn columnQty;
             
@@ -684,9 +649,9 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn AlbumIDColumn {
+            public global::System.Data.DataColumn AlbumNameColumn {
                 get {
-                    return this.columnAlbumID;
+                    return this.columnAlbumName;
                 }
             }
             
@@ -751,11 +716,11 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TransactionDetailRow AddTransactionDetailRow(TransactionHeaderRow parentTransactionHeaderRowByTransactionHeader_TransactionDetail, string AlbumID, string Qty, string AlbumStock, string AlbumPrice) {
+            public TransactionDetailRow AddTransactionDetailRow(TransactionHeaderRow parentTransactionHeaderRowByTransactionHeader_TransactionDetail, string AlbumName, string Qty, string AlbumStock, string AlbumPrice) {
                 TransactionDetailRow rowTransactionDetailRow = ((TransactionDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        AlbumID,
+                        AlbumName,
                         Qty,
                         AlbumStock,
                         AlbumPrice};
@@ -785,7 +750,7 @@ namespace KPopZtation_Project.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnTransactionID = base.Columns["TransactionID"];
-                this.columnAlbumID = base.Columns["AlbumID"];
+                this.columnAlbumName = base.Columns["AlbumName"];
                 this.columnQty = base.Columns["Qty"];
                 this.columnAlbumStock = base.Columns["AlbumStock"];
                 this.columnAlbumPrice = base.Columns["AlbumPrice"];
@@ -796,8 +761,8 @@ namespace KPopZtation_Project.Dataset {
             private void InitClass() {
                 this.columnTransactionID = new global::System.Data.DataColumn("TransactionID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransactionID);
-                this.columnAlbumID = new global::System.Data.DataColumn("AlbumID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAlbumID);
+                this.columnAlbumName = new global::System.Data.DataColumn("AlbumName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAlbumName);
                 this.columnQty = new global::System.Data.DataColumn("Qty", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQty);
                 this.columnAlbumStock = new global::System.Data.DataColumn("AlbumStock", typeof(string), null, global::System.Data.MappingType.Element);
@@ -890,267 +855,6 @@ namespace KPopZtation_Project.Dataset {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "TransactionDetailDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CountingDataTable : global::System.Data.TypedTableBase<CountingRow> {
-            
-            private global::System.Data.DataColumn columnGrandTotal;
-            
-            private global::System.Data.DataColumn columnSubtotal;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CountingDataTable() {
-                this.TableName = "Counting";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CountingDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected CountingDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn GrandTotalColumn {
-                get {
-                    return this.columnGrandTotal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SubtotalColumn {
-                get {
-                    return this.columnSubtotal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CountingRow this[int index] {
-                get {
-                    return ((CountingRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CountingRowChangeEventHandler CountingRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CountingRowChangeEventHandler CountingRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CountingRowChangeEventHandler CountingRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event CountingRowChangeEventHandler CountingRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddCountingRow(CountingRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CountingRow AddCountingRow(string GrandTotal, string Subtotal) {
-                CountingRow rowCountingRow = ((CountingRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        GrandTotal,
-                        Subtotal};
-                rowCountingRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCountingRow);
-                return rowCountingRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                CountingDataTable cln = ((CountingDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new CountingDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnGrandTotal = base.Columns["GrandTotal"];
-                this.columnSubtotal = base.Columns["Subtotal"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnGrandTotal = new global::System.Data.DataColumn("GrandTotal", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGrandTotal);
-                this.columnSubtotal = new global::System.Data.DataColumn("Subtotal", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSubtotal);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CountingRow NewCountingRow() {
-                return ((CountingRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CountingRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(CountingRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.CountingRowChanged != null)) {
-                    this.CountingRowChanged(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.CountingRowChanging != null)) {
-                    this.CountingRowChanging(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.CountingRowDeleted != null)) {
-                    this.CountingRowDeleted(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.CountingRowDeleting != null)) {
-                    this.CountingRowDeleting(this, new CountingRowChangeEvent(((CountingRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveCountingRow(CountingRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSetKPop ds = new DataSetKPop();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CountingDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1333,17 +1037,17 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string AlbumID {
+            public string AlbumName {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactionDetail.AlbumIDColumn]));
+                        return ((string)(this[this.tableTransactionDetail.AlbumNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AlbumID\' in table \'TransactionDetail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AlbumName\' in table \'TransactionDetail\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransactionDetail.AlbumIDColumn] = value;
+                    this[this.tableTransactionDetail.AlbumNameColumn] = value;
                 }
             }
             
@@ -1420,14 +1124,14 @@ namespace KPopZtation_Project.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAlbumIDNull() {
-                return this.IsNull(this.tableTransactionDetail.AlbumIDColumn);
+            public bool IsAlbumNameNull() {
+                return this.IsNull(this.tableTransactionDetail.AlbumNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAlbumIDNull() {
-                this[this.tableTransactionDetail.AlbumIDColumn] = global::System.Convert.DBNull;
+            public void SetAlbumNameNull() {
+                this[this.tableTransactionDetail.AlbumNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1464,77 +1168,6 @@ namespace KPopZtation_Project.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAlbumPriceNull() {
                 this[this.tableTransactionDetail.AlbumPriceColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class CountingRow : global::System.Data.DataRow {
-            
-            private CountingDataTable tableCounting;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal CountingRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCounting = ((CountingDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string GrandTotal {
-                get {
-                    try {
-                        return ((string)(this[this.tableCounting.GrandTotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotal\' in table \'Counting\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCounting.GrandTotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Subtotal {
-                get {
-                    try {
-                        return ((string)(this[this.tableCounting.SubtotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Subtotal\' in table \'Counting\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCounting.SubtotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsGrandTotalNull() {
-                return this.IsNull(this.tableCounting.GrandTotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetGrandTotalNull() {
-                this[this.tableCounting.GrandTotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSubtotalNull() {
-                return this.IsNull(this.tableCounting.SubtotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSubtotalNull() {
-                this[this.tableCounting.SubtotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1592,40 +1225,6 @@ namespace KPopZtation_Project.Dataset {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TransactionDetailRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class CountingRowChangeEvent : global::System.EventArgs {
-            
-            private CountingRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CountingRowChangeEvent(CountingRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CountingRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -11,11 +11,11 @@ namespace KPopZtation_Project.Repository
     public class AlbumRepository
     {
 
-        DatabaseKPopEntities1 db = dbSingleton.getInstance();
+        DatabaseKPopEntities2 db = dbSingleton.getInstance();
 
         public static List<Album> GetAlbumsFromRepo()
         {
-            DatabaseKPopEntities1 db = new DatabaseKPopEntities1();
+            DatabaseKPopEntities2 db = new DatabaseKPopEntities2();
             return db.Albums.ToList();
         }
 
@@ -78,7 +78,7 @@ namespace KPopZtation_Project.Repository
         public Album createAlbum(int foreignArtistID, string name, string description, int price, int stock, string fileName)
         {
             AlbumFactory abF = new AlbumFactory();
-            DatabaseKPopEntities1 db = new DatabaseKPopEntities1();
+            DatabaseKPopEntities2 db = new DatabaseKPopEntities2();
 
             if (HttpContext.Current.Request.Files.Count > 0)
             {

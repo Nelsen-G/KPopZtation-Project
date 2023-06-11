@@ -13,10 +13,10 @@ namespace KPopZtation_Project.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseKPopEntities1 : DbContext
+    public partial class DatabaseKPopEntities2 : DbContext
     {
-        public DatabaseKPopEntities1()
-            : base("name=DatabaseKPopEntities1")
+        public DatabaseKPopEntities2()
+            : base("name=DatabaseKPopEntities2")
         {
         }
     

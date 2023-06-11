@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ef04c93fcaa640d4b33cf73c7f517e68" Name="Diagram1">
+      <Diagram DiagramId="19172e41fe1a42efa7813e068c935695" Name="Diagram1">
         <EntityTypeShape EntityType="dbKPopModel.Album" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="dbKPopModel.Artist" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="dbKPopModel.Cart" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbKPopModel.Customer" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbKPopModel.Customer" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbKPopModel.TransactionDetail" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbKPopModel.TransactionHeader" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
         <AssociationConnector Association="dbKPopModel.FK_Album_Artist" ManuallyRouted="false" />

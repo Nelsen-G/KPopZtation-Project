@@ -9,15 +9,15 @@ namespace KPopZtation_Project.Repository
     public class dbSingleton
     {
 
-        private static DatabaseKPopEntities1 db = null;
+        private static DatabaseKPopEntities2 db = null;
 
         private dbSingleton() { }
 
-        public static DatabaseKPopEntities1 getInstance()
+        public static DatabaseKPopEntities2 getInstance()
         {
             if (db == null)
             {
-                db = new DatabaseKPopEntities1();
+                db = new DatabaseKPopEntities2();
             }
 
             return db;

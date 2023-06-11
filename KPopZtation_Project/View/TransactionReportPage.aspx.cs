@@ -18,42 +18,35 @@ namespace KPopZtation_Project.View
             KPopZtationReport report = new KPopZtationReport();
 
             CrystalReportViewer1.ReportSource = report;
-            DataSetKPop data = getData(TransactionHandler.GetTransactions(), AlbumHandler.GetAlbums());
+            DataSetKPop data = getData(TransactionHandler.GetTransactions());
             report.SetDataSource(data);
 
         }
 
-        private DataSetKPop getData(List<TransactionHeader> transactions, List<Album> albums)
+        private DataSetKPop getData(List<TransactionHeader> transactions)
         {
             DataSetKPop data = new DataSetKPop();
 
             var headertable = data.TransactionHeader;
             var detailtable = data.TransactionDetail;
-            var counttable = data.Counting;
 
 
             foreach (TransactionHeader t in transactions)
             {
-
                 var hrow = headertable.NewRow();
                 hrow["TransactionID"] = t.TransactionID;
                 hrow["TransactionDate"] = t.TransactionDate;
                 hrow["CustomerID"] = t.CustomerID;
-                //hrow["GrandTotal"] = t.GrandTotal;
-
-
                 headertable.Rows.Add(hrow);
 
                 foreach (TransactionDetail d in t.TransactionDetails)
                 {
                     var drow = detailtable.NewRow();
                     drow["TransactionID"] = d.TransactionID;
-                    drow["AlbumID"] = d.AlbumID;
+                    drow["AlbumName"] = d.Album.AlbumName;
                     drow["Qty"] = d.Qty;
-                    drow["AlbumStock"] = d.AlbumStock;
-                    drow["AlbumPrice"] = d.AlbumPrice;
-                   // drow["Subtotal"] = d.Subtotal;
-
+                    drow["AlbumStock"] = d.Album.AlbumStock;
+                    drow["AlbumPrice"] = d.Album.AlbumPrice;
                     detailtable.Rows.Add(drow);
                 }
             }
