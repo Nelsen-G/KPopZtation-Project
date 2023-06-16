@@ -61,7 +61,7 @@ namespace KPopZtation_Project.View
         }
         protected void btnAlbumDetail_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
+            LinkButton btn = (LinkButton)sender;
             string artistID = btn.CommandArgument;
 
             Response.Redirect("AlbumDetail.aspx?id=" + artistID);

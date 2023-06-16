@@ -44,7 +44,7 @@
                 <asp:Repeater ID="rptAlbums" runat="server">
                     <ItemTemplate>
                         <div>
-                            
+                            <asp:LinkButton runat="server" ID="btnAlbumDetail" OnClick="btnAlbumDetail_Click" CommandArgument='<%# Eval("AlbumID") %>' style="text-decoration: none;color:black;">
                             <p>Image: <%# Eval("AlbumImage") %></p>
                             <div>
                                 <img class="albumImage" src='<%# ResolveUrl("~/Assets/Albums/" + Eval("AlbumImage")) %>' style="width: 200px; height: auto;" alt="Album Image" />
@@ -54,10 +54,6 @@
                             <p>Name: <%# Eval("AlbumName") %></p>
                             <p>Price: <%# Eval("AlbumPrice") %></p>
                             <p>Description: <%# Eval("AlbumDescription") %></p>
-                     
-                            <div>
-                             <asp:Button ID="btnAlbumDetail" runat="server" Text="See Album Details" OnClick="btnAlbumDetail_Click" CommandArgument='<%# Eval("AlbumID") %>' />
-                            </div>
 
 
                             <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
@@ -66,6 +62,8 @@
                            
                             <% } %>
 
+                            <hr />
+                            </asp:LinkButton>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>

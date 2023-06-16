@@ -13,6 +13,7 @@
 
     <asp:Repeater ID="rptArtists" runat="server">
     <ItemTemplate>
+        <asp:LinkButton runat="server" ID="artistLink" OnClick="artistcard_Click" CommandArgument='<%# Eval("ArtistID") %>' style="text-decoration: none;color:black;">
         <div class="card">
             <div class="card-header">
                 <h3><%# Eval("ArtistName") %></h3>
@@ -24,8 +25,6 @@
                 <div>
                     <img class="artistImage" src='<%# ResolveUrl("~/Assets/Artists/" + Eval("ArtistImage")) %>' style="width: 200px; height: auto;" alt="Artist Image" />
                 </div>
-
-                <asp:Button ID="btnDetails" runat="server" Text="See Details" OnClick="btnDetails_Click" CommandArgument='<%# Eval("ArtistID") %>' />
             </div>
             <% if (Session["user"] != null && Session["user"].ToString() == "Admin") { %>
                 <div class="card-footer">
@@ -35,8 +34,9 @@
 
 
             <% } %>
-
+            <hr />
         </div>
+       </asp:LinkButton>
     </ItemTemplate>
 </asp:Repeater>
 
