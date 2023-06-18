@@ -45,11 +45,9 @@
 
         </div>
 
-
         <div>
             <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
         </div>
-
 
     <% } %>
 </asp:Content>
